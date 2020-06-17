@@ -58,7 +58,7 @@ function radarSetSpeed(defaultText)
         else
             ClearPrints()
             SetTextEntry_2("STRING")
-            AddTextComponentString("~r~Veuillez entrer un nombre correct !")
+            AddTextComponentString("~r~Please enter a correct number !")
             DrawSubtitleTimed(3000, 1)
             return
         end
@@ -121,7 +121,7 @@ function POLICE_radar()
            
             ClearPrints()
             SetTextEntry_2("STRING")
-            AddTextComponentString("~r~Vous n'êtes pas à coté de votre Radar !")
+            AddTextComponentString("~r~You are not near your Radar !")
             DrawSubtitleTimed(3000, 1)
            
             Citizen.Wait(1500) 
@@ -221,7 +221,7 @@ Citizen.CreateThread(function()
                
                 ClearPrints()
                 SetTextEntry_2("STRING")
-                AddTextComponentString("~r~Vous êtes parti trop loin de votre Radar !")
+                AddTextComponentString("~r~You went too far from your Radar !")
                 DrawSubtitleTimed(3000, 1)
                
             end
@@ -242,9 +242,9 @@ Citizen.CreateThread(function()
                        
                      
                 if vehSpeedKm < maxSpeed then
-                    info = string.format("   Vehicule ~r~%s ~w~Plaque ~r~%s ~w~Km/h ~g~%s", vehDesc, vehPlate, math.ceil(vehSpeedKm))
+                    info = string.format("   Vehicle ~r~%s ~w~Plaque ~r~%s ~w~Km/h ~g~%s", vehDesc, vehPlate, math.ceil(vehSpeedKm))
                 else
-                    info = string.format("   Vehicule ~r~%s ~w~Plaque ~r~%s ~w~Km/h ~r~%s", vehDesc, vehPlate, math.ceil(vehSpeedKm))
+                    info = string.format("   Vehicle ~r~%s ~w~Plaque ~r~%s ~w~Km/h ~r~%s", vehDesc, vehPlate, math.ceil(vehSpeedKm))
                     if LastPlate ~= vehPlate then
                         LastSpeed = vehSpeedKm
                         LastVehDesc = vehDesc
@@ -252,7 +252,7 @@ Citizen.CreateThread(function()
                     elseif LastSpeed < vehSpeedKm and LastPlate == vehPlate then
                             LastSpeed = vehSpeedKm
                     end
-                    LastInfo = string.format("   Vehicule ~r~%s ~w~Plaque ~r~%s ~w~Km/h ~r~%s", LastVehDesc, LastPlate, math.ceil(LastSpeed))
+                    LastInfo = string.format("   Vehicle ~r~%s ~w~Plaque ~r~%s ~w~Km/h ~r~%s", LastVehDesc, LastPlate, math.ceil(LastSpeed))
                 end
                    
                 DrawRect(0.88, 0.97, 0.2, 0.03, 0, 0, 0, 220)

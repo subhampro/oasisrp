@@ -672,19 +672,19 @@ function OpenPoliceActionsMenu()
 		title    = 'Police',
 		align    = 'top-left',
 		elements = {
-			{label = '<span style="color:orange;">Status of the\'agent <span style="color:cyan;"> >', value = 'status'},
-			{label = '<span style="color:#00cc00;">Citizen Interaction <span style="color:cyan;"> >', value = 'citizen_interaction'},
-			{label = '<span style="color:#00cc00;">Vehicle Interaction <span style="color:cyan;"> >', value = 'vehicle_interaction'},
-			{label = '<span style="color:#669999;">Handcuffs Menu<span style="color:cyan;"> >', value = 'menu_menottes'},			
-			{label = '<span style="color:#669999;">Object Menu <span style="color:cyan;"> >', value = 'object_spawner'},
-			{label = '<span style="color:#ff0033;">Escort Menu <span style="color:cyan;"> >', value = 'securitymenu'},
+			{label = '<span style="color:#ffffff;">Status Of The Agent <span style="color:cyan;"> >', value = 'status'},
+			{label = '<span style="color:#ffffff;">Citizen Interaction <span style="color:cyan;"> >', value = 'citizen_interaction'},
+			{label = '<span style="color:#ffffff;">Vehicle Interaction <span style="color:cyan;"> >', value = 'vehicle_interaction'},
+			{label = '<span style="color:#ffffff;">Handcuffs Menu<span style="color:cyan;"> >', value = 'menu_menottes'},			
+			{label = '<span style="color:#ffffff;">Object Menu <span style="color:cyan;"> >', value = 'object_spawner'},
+			{label = '<span style="color:#ffffff;">Escort Menu <span style="color:cyan;"> >', value = 'securitymenu'},
 			--{label = '<span style="color:#669999;">Equipement LSPD<span style="color:cyan;"> >', value = 'lspd_equipement'},
-			{label = '<span style="color:#ff0033;">Give A Fine<span style="color:cyan;"> >', value = 'ammende'},
-			{label = '<span style="color:#ff0033;">Put In Jail<span style="color:cyan;"> >', value = 'jail_menu'},
-			{label = '<span style="color:#006eff;">Reinforcement Request<span style="color:cyan;"> >', value = 'renfort'},
-			{label = '<span style="color:#66ff00;">Take Out Shield<span style="color:cyan;"> >', value = 'spawn_bouclier'},
-			{label = '<span style="color:#66ff00;">Store Shield<span style="color:cyan;"> >', value = 'remove_bouclier'},
-			{label = '<span style="color:#ffc800;">Mobile Speed Camera<span style="color:cyan;"> >', value = 'rd_mobile'}
+			{label = '<span style="color:#ffffff;">Give A Fine<span style="color:cyan;"> >', value = 'ammende'},
+			{label = '<span style="color:#ffffff;">Put In Jail<span style="color:cyan;"> >', value = 'jail_menu'},
+			{label = '<span style="color:#ffffff;">Reinforcement Request<span style="color:cyan;"> >', value = 'renfort'},
+			{label = '<span style="color:#ffffff;">Take Out Shield<span style="color:cyan;"> >', value = 'spawn_bouclier'},
+			{label = '<span style="color:#ffffff;">Store Shield<span style="color:cyan;"> >', value = 'remove_bouclier'},
+			{label = '<span style="color:#ffffff;">Mobile Speed Camera<span style="color:cyan;"> >', value = 'rd_mobile'}
 			
 	}}, function(data, menu)
 	
@@ -781,7 +781,7 @@ function OpenPoliceActionsMenu()
 			ESX.UI.Menu.Open(
 				'dialog', GetCurrentResourceName(), 'ammende',
 				{
-					title = 'Donner une contravention'
+					title = 'Give a ticket'
 				},
 				function(data, menu)
 
@@ -817,11 +817,11 @@ function OpenPoliceActionsMenu()
 			local elements  = {}
 
 			local elements = {
-				{label = '<span style="color:green;">To Put<span style="color:white;"> les menottes', value = 'handcuff'},
-				{label = '<span style="color:red;">To Take Off<span style="color:white;"> les menottes', value = 'handcuff2'},
+				{label = '<span style="color:white;">To Put<span style="color:white;"> The Handcuffs', value = 'handcuff'},
+				{label = '<span style="color:white;">To Remove Off<span style="color:white;"> The Handcuffs', value = 'handcuff2'},
 				{label = 'Escort The Person', value = 'drag'},
-				{label = '<span style="color:green;">To Put<span style="color:white;"> dans le véhicule', value = 'put_in_vehicle'},
-				{label = '<span style="color:red;">Remove<span style="color:white;"> du véhicule', value = 'out_the_vehicle'}
+				{label = '<span style="color:white;">To Put<span style="color:white;"> In Vehicle', value = 'put_in_vehicle'},
+				{label = '<span style="color:white;">Take Out<span style="color:white;"> Of Vehicle', value = 'out_the_vehicle'}
 			}
 
 			ESX.UI.Menu.Open('default', GetCurrentResourceName(), 'Menu_Menottes', {
@@ -874,8 +874,8 @@ function OpenPoliceActionsMenu()
 			local elements  = {}
 
 			local elements = {
-				{label = '👮 Deploye l\'escorte (1)', value = 'spawn'},	
-				{label = '👮 Deploye l\'escorte (2)', value = 'spawn2'},  
+				{label = '👮 Deploy \'escort (1)', value = 'spawn'},	
+				{label = '👮 Deploy \'escort (2)', value = 'spawn2'},  
 			--	{label = '🔫 Donne des armes', value = 'giveweapons'},
 				{label = '🗡️ Attack nearest player', value = 'playerattack'},
 				{label = '🚘 Vehicle: Fix', value = 'fix'},
@@ -977,13 +977,13 @@ function OpenPoliceActionsMenu()
 			local elements  = {}
 
 			local elements = {
-				{label = '<span style="color:green;">Outlet<span style="color:white;"> de service', value = 'prise'},
-				{label = '<span style="color:red;">End<span style="color:white;"> de service', value = 'fin'},
-				{label = '<span style="color:orange;">Pause<span style="color:white;"> de service', value = 'pause'},
-				{label = '<span style="color:orange;">Standby<span style="color:gray;">, en attente de dispatch', value = 'standby'},
-				{label = '<span style="color:orange;">Control<span style="color:gray;"> routier en cours', value = 'control'},
-				{label = '<span style="color:orange;">Refusal<span style="color:gray;"> d\'obtempérer / Délit de fuite', value = 'refus'},
-				{label = '<span style="color:orange;">Crime<span style="color:gray;"> en cours / poursuite en cours', value = 'crime'}
+				{label = '<span style="color:white;">On<span style="color:white;"> Duty', value = 'prise'},
+				{label = '<span style="color:white;">End<span style="color:white;"> Duty', value = 'fin'},
+				{label = '<span style="color:white;">Break<span style="color:white;"> From Duty', value = 'pause'},
+				{label = '<span style="color:white;">Standby<span style="color:white;">, For Dispatch', value = 'standby'},
+				{label = '<span style="color:white;">Control<span style="color:white;"> On The Road', value = 'control'},
+				{label = '<span style="color:white;">Refusal<span style="color:white;"> Comply / Hit and run', value = 'refus'},
+				{label = '<span style="color:white;">Crime<span style="color:white;"> In investigation / Ongoing Lawsuit', value = 'crime'}
 			}
 
 			ESX.UI.Menu.Open('default', GetCurrentResourceName(), 'status_service', {
@@ -2582,14 +2582,14 @@ AddEventHandler('renfort:setBlip', function(coords, raison)
 	if raison == 'petit' then
 		PlaySoundFrontend(-1, "Start_Squelch", "CB_RADIO_SFX", 1)
 		PlaySoundFrontend(-1, "OOB_Start", "GTAO_FM_Events_Soundset", 1)
-		ESX.ShowAdvancedNotification('LSPD INFORMATIONS', '~b~Reinforcement Request', 'Request for reinforcement requested.\nReply: ~g~CODE-2\n~w~Importance: ~g~Light .', 'CHAR_CALL911', 8)
+		ESX.ShowAdvancedNotification('LSPD INFORMATIONS', '~b~Reinforcement Request', 'Backup Requested .\nReply: ~g~CODE-2\n~w~Importance: ~g~Minimal.', 'CHAR_CALL911', 8)
 		Wait(1000)
 		PlaySoundFrontend(-1, "End_Squelch", "CB_RADIO_SFX", 1)
 		color = 2
 	elseif raison == 'importante' then
 		PlaySoundFrontend(-1, "Start_Squelch", "CB_RADIO_SFX", 1)
 		PlaySoundFrontend(-1, "OOB_Start", "GTAO_FM_Events_Soundset", 1)
-		ESX.ShowAdvancedNotification('LSPD INFORMATIONS', '~b~Reinforcement Request', 'Request for reinforcement requested.\nReply: ~g~CODE-3\n~w~Importance: ~o~Important.', 'CHAR_CALL911', 8)
+		ESX.ShowAdvancedNotification('LSPD INFORMATIONS', '~b~Reinforcement Request', 'Backup Requested .\nReply: ~g~CODE-3\n~w~Importance: ~o~Important.', 'CHAR_CALL911', 8)
 		Wait(1000)
 		PlaySoundFrontend(-1, "End_Squelch", "CB_RADIO_SFX", 1)
 		color = 47
@@ -2597,7 +2597,7 @@ AddEventHandler('renfort:setBlip', function(coords, raison)
 		PlaySoundFrontend(-1, "Start_Squelch", "CB_RADIO_SFX", 1)
 		PlaySoundFrontend(-1, "OOB_Start", "GTAO_FM_Events_Soundset", 1)
 		PlaySoundFrontend(-1, "FocusIn", "HintCamSounds", 1)
-		ESX.ShowAdvancedNotification('LSPD INFORMATIONS', '~b~Reinforcement Request', 'Request for reinforcement requested.\nReply: ~g~CODE-99\n~w~Importance: ~r~URGENTE !\nDANGER IMPORTANT', 'CHAR_CALL911', 8)
+		ESX.ShowAdvancedNotification('LSPD INFORMATIONS', '~b~Reinforcement Request', 'Backup Requested .\nReply: ~g~CODE-99\n~w~Importance: ~r~Immediate Backup.', 'CHAR_CALL911', 8)
 		Wait(1000)
 		PlaySoundFrontend(-1, "End_Squelch", "CB_RADIO_SFX", 1)
 		PlaySoundFrontend(-1, "FocusOut", "HintCamSounds", 1)

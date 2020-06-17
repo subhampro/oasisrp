@@ -97,8 +97,8 @@ Locales['fr'] = {
   ['search_database_found'] = 'the vehicle is ~y~registered~s~ to ~b~%s~s~',
   -- Traffic interaction
   ['traffic_interaction'] = 'interaction Traffic',
-  ['Cone'] = 'cone',
-  ['Barrier'] = 'barrier',
+  ['cone'] = 'cone',
+  ['barrier'] = 'barrier',
   ['spikestrips'] = 'spikestrips',
   ['box'] = 'box',
   ['cash'] = 'box of cash',

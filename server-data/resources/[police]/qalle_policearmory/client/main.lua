@@ -44,10 +44,10 @@ Citizen.CreateThread(function()
 			if dstCheck <= 5.0 then
 				sleepThread = 5
 
-				local text = "Armurerie"
+				local text = "Armory"
 
 				if dstCheck <= 0.5 then
-					text = "[~g~E~s~] Armurerie"
+					text = "[~g~E~s~] Armory"
 
 					if IsControlJustPressed(0, 38) then
 						OpenPoliceArmory()
@@ -72,7 +72,7 @@ OpenPoliceArmory = function()
 
 	ESX.UI.Menu.Open('default', GetCurrentResourceName(), "police_armory_menu",
 		{
-			title    = "Armurerie Police",
+			title    = "Armory Police",
 			align    = "center",
 			elements = elements
 		},
@@ -110,7 +110,7 @@ OpenWeaponStorage = function()
 
 	ESX.UI.Menu.Open('default', GetCurrentResourceName(), "police_armory_weapon_menu",
 		{
-			title    = "Armurerie armes police",
+			title    = "Armory Armes Police",
 			align    = "center",
 			elements = elements
 		},
@@ -125,13 +125,13 @@ OpenWeaponStorage = function()
 		if (DoesEntityExist(closestPed) and closestPedDst >= 5.0) or IsPedAPlayer(closestPed) then
 			RefreshPed(true) -- failsafe if the ped somehow dissapear.
 
-			ESX.ShowNotification("Veuillez réessayer.")
+			ESX.ShowNotification("Try Again.")
 
 			return
 		end
 
 		if IsEntityPlayingAnim(closestPed, "mp_cop_armoury", "pistol_on_counter_cop", 3) or IsEntityPlayingAnim(closestPed, "mp_cop_armoury", "rifle_on_counter_cop", 3) then
-			ESX.ShowNotification("Attendez votre tour, s'il vous plaît.")
+			ESX.ShowNotification("Wait your turn, please.")
 			return
 		end
 
