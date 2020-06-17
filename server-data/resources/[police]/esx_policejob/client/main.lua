@@ -672,19 +672,19 @@ function OpenPoliceActionsMenu()
 		title    = 'Police',
 		align    = 'top-left',
 		elements = {
-			{label = '<span style="color:orange;">Status de l\'agent <span style="color:cyan;"> >', value = 'status'},
-			{label = '<span style="color:#00cc00;">Intéraction Citoyen <span style="color:cyan;"> >', value = 'citizen_interaction'},
-			{label = '<span style="color:#00cc00;">Intéraction véhicule <span style="color:cyan;"> >', value = 'vehicle_interaction'},
-			{label = '<span style="color:#669999;">Menu Menottes<span style="color:cyan;"> >', value = 'menu_menottes'},			
-			{label = '<span style="color:#669999;">Menu objets <span style="color:cyan;"> >', value = 'object_spawner'},
-			{label = '<span style="color:#ff0033;">Menu Escorte <span style="color:cyan;"> >', value = 'securitymenu'},
+			{label = '<span style="color:orange;">Status of the\'agent <span style="color:cyan;"> >', value = 'status'},
+			{label = '<span style="color:#00cc00;">Citizen Interaction <span style="color:cyan;"> >', value = 'citizen_interaction'},
+			{label = '<span style="color:#00cc00;">Vehicle Interaction <span style="color:cyan;"> >', value = 'vehicle_interaction'},
+			{label = '<span style="color:#669999;">Handcuffs Menu<span style="color:cyan;"> >', value = 'menu_menottes'},			
+			{label = '<span style="color:#669999;">Object Menu <span style="color:cyan;"> >', value = 'object_spawner'},
+			{label = '<span style="color:#ff0033;">Escort Menu <span style="color:cyan;"> >', value = 'securitymenu'},
 			--{label = '<span style="color:#669999;">Equipement LSPD<span style="color:cyan;"> >', value = 'lspd_equipement'},
-			{label = '<span style="color:#ff0033;">Donner une ammende<span style="color:cyan;"> >', value = 'ammende'},
-			{label = '<span style="color:#ff0033;">Mettre en Prison<span style="color:cyan;"> >', value = 'jail_menu'},
-			{label = '<span style="color:#006eff;">Demande renfort<span style="color:cyan;"> >', value = 'renfort'},
-			{label = '<span style="color:#66ff00;">Sortir bouclier<span style="color:cyan;"> >', value = 'spawn_bouclier'},
-			{label = '<span style="color:#66ff00;">Ranger bouclier<span style="color:cyan;"> >', value = 'remove_bouclier'},
-			{label = '<span style="color:#ffc800;">Radar mobile<span style="color:cyan;"> >', value = 'rd_mobile'}
+			{label = '<span style="color:#ff0033;">Give A Fine<span style="color:cyan;"> >', value = 'ammende'},
+			{label = '<span style="color:#ff0033;">Put In Jail<span style="color:cyan;"> >', value = 'jail_menu'},
+			{label = '<span style="color:#006eff;">Reinforcement Request<span style="color:cyan;"> >', value = 'renfort'},
+			{label = '<span style="color:#66ff00;">Take Out Shield<span style="color:cyan;"> >', value = 'spawn_bouclier'},
+			{label = '<span style="color:#66ff00;">Store Shield<span style="color:cyan;"> >', value = 'remove_bouclier'},
+			{label = '<span style="color:#ffc800;">Mobile Speed Camera<span style="color:cyan;"> >', value = 'rd_mobile'}
 			
 	}}, function(data, menu)
 	
@@ -732,7 +732,7 @@ function OpenPoliceActionsMenu()
 						ESX.ShowNotification(_U('licence_you_ppa', data.current.label, targetName))
 						TriggerServerEvent('esx_license:addLicense', GetPlayerServerId(closestPlayer), 'weapon')
 					else
-						ESX.ShowNotification('Aucun joueurs à proximité')
+						ESX.ShowNotification('No players nearby')
 					end						
 					elseif action == 'handcuff' then
 						--TriggerServerEvent('esx_policejob:handcuff', GetPlayerServerId(closestPlayer))
@@ -788,14 +788,14 @@ function OpenPoliceActionsMenu()
 					local amount = tonumber(data.value)
 
 					if amount == nil or amount <= 0 then
-						ESX.ShowNotification('Montant invalide')
+						ESX.ShowNotification('Invalid amount')
 					else
 						menu.close()
 
 						local closestPlayer, closestDistance = ESX.Game.GetClosestPlayer()
 
 						if closestPlayer == -1 or closestDistance > 3.0 then
-							ESX.ShowNotification('Pas de joueurs proche')
+							ESX.ShowNotification('No players close')
 						else
 							local playerPed        = GetPlayerPed(-1)
 
@@ -804,7 +804,7 @@ function OpenPoliceActionsMenu()
 								Citizen.Wait(5000)
 								ClearPedTasks(playerPed)
 								TriggerServerEvent('esx_billing:sendBill', GetPlayerServerId(closestPlayer), 'society_police', 'Police', amount)
-								ESX.ShowNotification('Ammende envoyer')							
+								ESX.ShowNotification('Fine Sent')							
 						
 							end)
 						end
@@ -817,11 +817,11 @@ function OpenPoliceActionsMenu()
 			local elements  = {}
 
 			local elements = {
-				{label = '<span style="color:green;">Mettre<span style="color:white;"> les menottes', value = 'handcuff'},
-				{label = '<span style="color:red;">Enlever<span style="color:white;"> les menottes', value = 'handcuff2'},
-				{label = 'Escorter la personne', value = 'drag'},
-				{label = '<span style="color:green;">Mettre<span style="color:white;"> dans le véhicule', value = 'put_in_vehicle'},
-				{label = '<span style="color:red;">Retirer<span style="color:white;"> du véhicule', value = 'out_the_vehicle'}
+				{label = '<span style="color:green;">To Put<span style="color:white;"> les menottes', value = 'handcuff'},
+				{label = '<span style="color:red;">To Take Off<span style="color:white;"> les menottes', value = 'handcuff2'},
+				{label = 'Escort The Person', value = 'drag'},
+				{label = '<span style="color:green;">To Put<span style="color:white;"> dans le véhicule', value = 'put_in_vehicle'},
+				{label = '<span style="color:red;">Remove<span style="color:white;"> du véhicule', value = 'out_the_vehicle'}
 			}
 
 			ESX.UI.Menu.Open('default', GetCurrentResourceName(), 'Menu_Menottes', {
@@ -864,7 +864,7 @@ function OpenPoliceActionsMenu()
 						TriggerServerEvent('esx_policejob:OutVehicle', GetPlayerServerId(closestPlayer))
 					end
 				else
-					ESX.ShowNotification('Pas de joueurs proches')
+					ESX.ShowNotification('No close players')
 				end
 
 			end, function(data2, menu2)
@@ -874,14 +874,14 @@ function OpenPoliceActionsMenu()
 			local elements  = {}
 
 			local elements = {
-				{label = '👮 Deployé l\'escorte (1)', value = 'spawn'},	
-				{label = '👮 Deployé l\'escorte (2)', value = 'spawn2'},  
+				{label = '👮 Deploye l\'escorte (1)', value = 'spawn'},	
+				{label = '👮 Deploye l\'escorte (2)', value = 'spawn2'},  
 			--	{label = '🔫 Donne des armes', value = 'giveweapons'},
-				{label = '🗡️ Attaque le joueur le plus proche', value = 'playerattack'},
-				{label = '🚘 Vehicles: Fix', value = 'fix'},
-				{label = '🛫 partez', value = 'wander'},
-				{label = '🔊 Suivez-moi', value = 'follow'},
-				{label = '🗑️ Supprimer', value = 'delete'},
+				{label = '🗡️ Attack nearest player', value = 'playerattack'},
+				{label = '🚘 Vehicle: Fix', value = 'fix'},
+				{label = '🛫 Go Away', value = 'wander'},
+				{label = '🔊 Follow me', value = 'follow'},
+				{label = '🗑️ Remove', value = 'delete'},
 			--	{label = '⬅️ Sortir menu', value = 'exit'}
 			}
 			
@@ -977,12 +977,12 @@ function OpenPoliceActionsMenu()
 			local elements  = {}
 
 			local elements = {
-				{label = '<span style="color:green;">Prise<span style="color:white;"> de service', value = 'prise'},
-				{label = '<span style="color:red;">Fin<span style="color:white;"> de service', value = 'fin'},
+				{label = '<span style="color:green;">Outlet<span style="color:white;"> de service', value = 'prise'},
+				{label = '<span style="color:red;">End<span style="color:white;"> de service', value = 'fin'},
 				{label = '<span style="color:orange;">Pause<span style="color:white;"> de service', value = 'pause'},
 				{label = '<span style="color:orange;">Standby<span style="color:gray;">, en attente de dispatch', value = 'standby'},
 				{label = '<span style="color:orange;">Control<span style="color:gray;"> routier en cours', value = 'control'},
-				{label = '<span style="color:orange;">Refus<span style="color:gray;"> d\'obtempérer / Délit de fuite', value = 'refus'},
+				{label = '<span style="color:orange;">Refusal<span style="color:gray;"> d\'obtempérer / Délit de fuite', value = 'refus'},
 				{label = '<span style="color:orange;">Crime<span style="color:gray;"> en cours / poursuite en cours', value = 'crime'}
 			}
 
@@ -1137,9 +1137,9 @@ function OpenPoliceActionsMenu()
 			local elements  = {}
 			local playerPed = PlayerPedId()
 
-			table.insert(elements, {label = ('Petite demande'), value = 'petite_demande'})
-			table.insert(elements, {label = ('Demande importante'), value = 'demande_importante'})
-			table.insert(elements, {label = ('Toute les unitées demandé !'), value = 'omgad'})
+			table.insert(elements, {label = ('Small Request'), value = 'petite_demande'})
+			table.insert(elements, {label = ('Significant Demand'), value = 'demande_importante'})
+			table.insert(elements, {label = ('All units requested !'), value = 'omgad'})
 
 
 			ESX.UI.Menu.Open('default', GetCurrentResourceName(), 'renfort', {
@@ -1175,9 +1175,9 @@ function OpenPoliceActionsMenu()
 			if grade == 'recruit' then
 				table.insert(elements, {label = ('Equipement Cadet'), value = 'equipement_cadet'})
 			elseif grade == 'officer' then
-				table.insert(elements, {label = ('Equipement officier'), value = 'equipement_officier'})
+				table.insert(elements, {label = ('Equipement Officier'), value = 'equipement_officier'})
 			elseif grade == 'sergeant' then
-				table.insert(elements, {label = ('Equipement sergeant'), value = 'equipement_sergeant'})
+				table.insert(elements, {label = ('Equipement Sergeant'), value = 'equipement_sergeant'})
 			elseif grade == 'lieutenant' then
 				table.insert(elements, {label = ('Equipement Lieutenant'), value = 'equipement_lieutenant'})
 			elseif grade == 'boss' then
@@ -1204,7 +1204,7 @@ function OpenPoliceActionsMenu()
 					GiveWeaponToPed(PlayerPedId(), "WEAPON_STUNGUN", 255, false, false)
 					GiveWeaponToPed(PlayerPedId(), "WEAPON_NIGHTSTICK", 255, false, false)
 					
-					ESX.ShowAdvancedNotification('LSPD INFO', 'Armurie LSPD', 'Voila ton équipement, le perd pas.', 'CHAR_AMMUNATION', 1)
+					ESX.ShowAdvancedNotification('LSPD INFO', 'LSPD Armory ',' Here is your equipment, dont lose it.', 'CHAR_AMMUNATION', 1)
 					PlaySoundFrontend(-1, "Bus_Schedule_Pickup", "DLC_PRISON_BREAK_HEIST_SOUNDS", 0)
 				elseif action == 'equipement_officier' then
 					PlaySoundFrontend(-1, "1st_Person_Transition", "PLAYER_SWITCH_CUSTOM_SOUNDSET", 0)
@@ -1214,7 +1214,7 @@ function OpenPoliceActionsMenu()
 					GiveWeaponToPed(PlayerPedId(), "WEAPON_NIGHTSTICK", 255, false, false)
 					GiveWeaponToPed(PlayerPedId(), "WEAPON_CARBINERIFLE", 255, false, false)
 					
-					ESX.ShowAdvancedNotification('LSPD INFO', 'Armurie LSPD', 'Voila ton équipement, le perd pas.', 'CHAR_AMMUNATION', 1)
+					ESX.ShowAdvancedNotification('LSPD INFO', 'LSPD Armory ',' Here is your equipment, dont lose it.', 'CHAR_AMMUNATION', 1)
 					PlaySoundFrontend(-1, "Bus_Schedule_Pickup", "DLC_PRISON_BREAK_HEIST_SOUNDS", 0)
 				elseif action == 'equipement_sergeant' then
 					PlaySoundFrontend(-1, "1st_Person_Transition", "PLAYER_SWITCH_CUSTOM_SOUNDSET", 0)
@@ -1225,7 +1225,7 @@ function OpenPoliceActionsMenu()
 					GiveWeaponToPed(PlayerPedId(), "WEAPON_ADVANCEDRIFLE", 255, false, false)
 					GiveWeaponToPed(PlayerPedId(), "WEAPON_FLASHBANG", 25, false, false)
 					
-					ESX.ShowAdvancedNotification('LSPD INFO', 'Armurie LSPD', 'Voila ton équipement, le perd pas.', 'CHAR_AMMUNATION', 1)
+					ESX.ShowAdvancedNotification('LSPD INFO', 'LSPD Armory ',' Here is your equipment, dont lose it.', 'CHAR_AMMUNATION', 1)
 					PlaySoundFrontend(-1, "Bus_Schedule_Pickup", "DLC_PRISON_BREAK_HEIST_SOUNDS", 0)
 				elseif action == 'equipement_lieutenant' then
 					PlaySoundFrontend(-1, "1st_Person_Transition", "PLAYER_SWITCH_CUSTOM_SOUNDSET", 0)
@@ -1237,7 +1237,7 @@ function OpenPoliceActionsMenu()
 					GiveWeaponToPed(PlayerPedId(), "WEAPON_SNIPERRIFLE", 255, false, false)
 					GiveWeaponToPed(PlayerPedId(), "WEAPON_FLASHBANG", 25, false, false)
 					
-					ESX.ShowAdvancedNotification('LSPD INFO', 'Armurie LSPD', 'Voila ton équipement, le perd pas.', 'CHAR_AMMUNATION', 1)
+					ESX.ShowAdvancedNotification('LSPD INFO', 'LSPD Armory ',' Here is your equipment, dont lose it.', 'CHAR_AMMUNATION', 1)
 					PlaySoundFrontend(-1, "Bus_Schedule_Pickup", "DLC_PRISON_BREAK_HEIST_SOUNDS", 0)
 				elseif action == 'equipement_cmd' then
 					PlaySoundFrontend(-1, "1st_Person_Transition", "PLAYER_SWITCH_CUSTOM_SOUNDSET", 0)
@@ -1249,7 +1249,7 @@ function OpenPoliceActionsMenu()
 					GiveWeaponToPed(PlayerPedId(), "WEAPON_HEAVYSNIPER", 255, false, false)
 					GiveWeaponToPed(PlayerPedId(), "WEAPON_FLASHBANG", 25, false, false)
 					
-					ESX.ShowAdvancedNotification('LSPD INFO', 'Armurie LSPD', 'Voila ton équipement, le perd pas.', 'CHAR_AMMUNATION', 1)
+					ESX.ShowAdvancedNotification('LSPD INFO', 'LSPD Armory ',' Here is your equipment, dont lose it.', 'CHAR_AMMUNATION', 1)
 					PlaySoundFrontend(-1, "Bus_Schedule_Pickup", "DLC_PRISON_BREAK_HEIST_SOUNDS", 0)
 					
 				end
@@ -1263,10 +1263,10 @@ function OpenPoliceActionsMenu()
 				title    = _U('traffic_interaction'),
 				align    = 'top-left',
 				elements = {
-					{label = _U('cone'), model = 'prop_roadcone02a'},
-					{label = _U('barrier'), model = 'prop_barrier_work05'},
-					{label = _U('spikestrips'), model = 'p_ld_stinger_s'},
-					{label = _U('box'), model = 'prop_boxpile_07d'},
+					{label = _U('Cone'), model = 'prop_roadcone02a'},
+					{label = _U('Barrier'), model = 'prop_barrier_work05'},
+					{label = _U('Spikestrips'), model = 'p_ld_stinger_s'},
+					{label = _U('Box'), model = 'prop_boxpile_07d'},
 			}}, function(data2, menu2)
 				local playerPed = PlayerPedId()
 				local coords    = GetEntityCoords(playerPed)
@@ -2582,14 +2582,14 @@ AddEventHandler('renfort:setBlip', function(coords, raison)
 	if raison == 'petit' then
 		PlaySoundFrontend(-1, "Start_Squelch", "CB_RADIO_SFX", 1)
 		PlaySoundFrontend(-1, "OOB_Start", "GTAO_FM_Events_Soundset", 1)
-		ESX.ShowAdvancedNotification('LSPD INFORMATIONS', '~b~Demande de renfort', 'Demande de renfort demandé.\nRéponse: ~g~CODE-2\n~w~Importance: ~g~Légère.', 'CHAR_CALL911', 8)
+		ESX.ShowAdvancedNotification('LSPD INFORMATIONS', '~b~Reinforcement Request', 'Request for reinforcement requested.\nReply: ~g~CODE-2\n~w~Importance: ~g~Light .', 'CHAR_CALL911', 8)
 		Wait(1000)
 		PlaySoundFrontend(-1, "End_Squelch", "CB_RADIO_SFX", 1)
 		color = 2
 	elseif raison == 'importante' then
 		PlaySoundFrontend(-1, "Start_Squelch", "CB_RADIO_SFX", 1)
 		PlaySoundFrontend(-1, "OOB_Start", "GTAO_FM_Events_Soundset", 1)
-		ESX.ShowAdvancedNotification('LSPD INFORMATIONS', '~b~Demande de renfort', 'Demande de renfort demandé.\nRéponse: ~g~CODE-3\n~w~Importance: ~o~Importante.', 'CHAR_CALL911', 8)
+		ESX.ShowAdvancedNotification('LSPD INFORMATIONS', '~b~Reinforcement Request', 'Request for reinforcement requested.\nReply: ~g~CODE-3\n~w~Importance: ~o~Important.', 'CHAR_CALL911', 8)
 		Wait(1000)
 		PlaySoundFrontend(-1, "End_Squelch", "CB_RADIO_SFX", 1)
 		color = 47
@@ -2597,7 +2597,7 @@ AddEventHandler('renfort:setBlip', function(coords, raison)
 		PlaySoundFrontend(-1, "Start_Squelch", "CB_RADIO_SFX", 1)
 		PlaySoundFrontend(-1, "OOB_Start", "GTAO_FM_Events_Soundset", 1)
 		PlaySoundFrontend(-1, "FocusIn", "HintCamSounds", 1)
-		ESX.ShowAdvancedNotification('LSPD INFORMATIONS', '~b~Demande de renfort', 'Demande de renfort demandé.\nRéponse: ~g~CODE-99\n~w~Importance: ~r~URGENTE !\nDANGER IMPORTANT', 'CHAR_CALL911', 8)
+		ESX.ShowAdvancedNotification('LSPD INFORMATIONS', '~b~Reinforcement Request', 'Request for reinforcement requested.\nReply: ~g~CODE-99\n~w~Importance: ~r~URGENTE !\nDANGER IMPORTANT', 'CHAR_CALL911', 8)
 		Wait(1000)
 		PlaySoundFrontend(-1, "End_Squelch", "CB_RADIO_SFX", 1)
 		PlaySoundFrontend(-1, "FocusOut", "HintCamSounds", 1)
@@ -2618,37 +2618,37 @@ RegisterNetEvent('police:InfoService')
 AddEventHandler('police:InfoService', function(service, nom)
 	if service == 'prise' then
 		PlaySoundFrontend(-1, "Start_Squelch", "CB_RADIO_SFX", 1)
-		ESX.ShowAdvancedNotification('LSPD INFORMATIONS', '~b~Prise de service', 'Agent: ~g~'..nom..'\n~w~Code: ~g~10-8\n~w~Information: ~g~Prise de service.', 'CHAR_CALL911', 8)
+		ESX.ShowAdvancedNotification('LSPD INFORMATIONS', '~b~Service plug', 'Agent: ~g~'..nom..'\n~w~Code: ~g~10-8\n~w~Information: ~g~Service plug.', 'CHAR_CALL911', 8)
 		Wait(1000)
 		PlaySoundFrontend(-1, "End_Squelch", "CB_RADIO_SFX", 1)
 	elseif service == 'fin' then
 		PlaySoundFrontend(-1, "Start_Squelch", "CB_RADIO_SFX", 1)
-		ESX.ShowAdvancedNotification('LSPD INFORMATIONS', '~b~Fin de service', 'Agent: ~g~'..nom..'\n~w~Code: ~g~10-10\n~w~Information: ~g~Fin de service.', 'CHAR_CALL911', 8)
+		ESX.ShowAdvancedNotification('LSPD INFORMATIONS', '~b~End of service', 'Agent: ~g~'..nom..'\n~w~Code: ~g~10-10\n~w~Information: ~g~End of service.', 'CHAR_CALL911', 8)
 		Wait(1000)
 		PlaySoundFrontend(-1, "End_Squelch", "CB_RADIO_SFX", 1)
 	elseif service == 'pause' then
 		PlaySoundFrontend(-1, "Start_Squelch", "CB_RADIO_SFX", 1)
-		ESX.ShowAdvancedNotification('LSPD INFORMATIONS', '~b~Pause de service', 'Agent: ~g~'..nom..'\n~w~Code: ~g~10-6\n~w~Information: ~g~Pause de service.', 'CHAR_CALL911', 8)
+		ESX.ShowAdvancedNotification('LSPD INFORMATIONS', '~b~Service break', 'Agent: ~g~'..nom..'\n~w~Code: ~g~10-6\n~w~Information: ~g~Service break.', 'CHAR_CALL911', 8)
 		Wait(1000)
 		PlaySoundFrontend(-1, "End_Squelch", "CB_RADIO_SFX", 1)
 	elseif service == 'standby' then
 		PlaySoundFrontend(-1, "Start_Squelch", "CB_RADIO_SFX", 1)
-		ESX.ShowAdvancedNotification('LSPD INFORMATIONS', '~b~Mise en standby', 'Agent: ~g~'..nom..'\n~w~Code: ~g~10-12\n~w~Information: ~g~Standby, en attente de dispatch.', 'CHAR_CALL911', 8)
+		ESX.ShowAdvancedNotification('LSPD INFORMATIONS', '~b~Mise and standby', 'Agent: ~g~'..nom..'\n~w~Code: ~g~10-12\n~w~Information: ~g~Standby, awaiting dispatch.', 'CHAR_CALL911', 8)
 		Wait(1000)
 		PlaySoundFrontend(-1, "End_Squelch", "CB_RADIO_SFX", 1)
 	elseif service == 'control' then
 		PlaySoundFrontend(-1, "Start_Squelch", "CB_RADIO_SFX", 1)
-		ESX.ShowAdvancedNotification('LSPD INFORMATIONS', '~b~Control routier', 'Agent: ~g~'..nom..'\n~w~Code: ~g~10-48\n~w~Information: ~g~Control routier en cours.', 'CHAR_CALL911', 8)
+		ESX.ShowAdvancedNotification('LSPD INFORMATIONS', '~b~Road control', 'Agent: ~g~'..nom..'\n~w~Code: ~g~10-48\n~w~Information: ~g~Road control in progress.', 'CHAR_CALL911', 8)
 		Wait(1000)
 		PlaySoundFrontend(-1, "End_Squelch", "CB_RADIO_SFX", 1)
 	elseif service == 'refus' then
 		PlaySoundFrontend(-1, "Start_Squelch", "CB_RADIO_SFX", 1)
-		ESX.ShowAdvancedNotification('LSPD INFORMATIONS', '~b~Refus d\'obtempérer', 'Agent: ~g~'..nom..'\n~w~Code: ~g~10-30\n~w~Information: ~g~Refus d\'obtempérer / Délit de fuite en cours.', 'CHAR_CALL911', 8)
+		ESX.ShowAdvancedNotification('LSPD INFORMATIONS', '~b~Refus d\'comply', 'Agent: ~g~'..nom..'\n~w~Code: ~g~10-30\n~w~Information: ~g~Refusal d\'comply / Délit de fuite en cours.', 'CHAR_CALL911', 8)
 		Wait(1000)
 		PlaySoundFrontend(-1, "End_Squelch", "CB_RADIO_SFX", 1)
 	elseif service == 'crime' then
 		PlaySoundFrontend(-1, "Start_Squelch", "CB_RADIO_SFX", 1)
-		ESX.ShowAdvancedNotification('LSPD INFORMATIONS', '~b~Crime en cours', 'Agent: ~g~'..nom..'\n~w~Code: ~g~10-31\n~w~Information: ~g~Crime en cours / poursuite en cours.', 'CHAR_CALL911', 8)
+		ESX.ShowAdvancedNotification('LSPD INFORMATIONS', '~b~Crime in progress', 'Agent: ~g~'..nom..'\n~w~Code: ~g~10-31\n~w~Information: ~g~Crime in progress / ongoing lawsuit.', 'CHAR_CALL911', 8)
 		Wait(1000)
 		PlaySoundFrontend(-1, "End_Squelch", "CB_RADIO_SFX", 1)
 	end

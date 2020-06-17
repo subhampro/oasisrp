@@ -82,7 +82,7 @@ Config.SuppressorRemove = "You have removed a Suppressor~s~ for ~r~%s ~s~"
 -- ProgressBar Text_
 Config.Progress1 = "Putting The Weapons"
 Config.Progress2 = "Putting Vest"
-Config.Progress3 = "Putting Attachments"
+Config.Progress3 = "Putting Attachments"-
 -- ProgressBar Timer, in seconds:
 Config.RestockTimer = 2
 Config.RemoveVestTimer = 2

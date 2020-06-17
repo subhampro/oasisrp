@@ -13,7 +13,7 @@ local Keys = {
 ESX = nil
 local GUI                        = {}
 GUI.Time                         = 0
-GUI.PoliceCadIsShowed            = true
+GUI.PoliceCadIsShowed            = false
 
 Citizen.CreateThread(function()
 

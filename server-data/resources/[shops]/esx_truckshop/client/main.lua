@@ -164,7 +164,7 @@ function OpenShopMenu()
 								SetVehicleNumberPlateText(vehicle, newPlate)
 								
 								if Config.EnableOwnedVehicles then
-									TriggerServerEvent('esx_truckshop:setVehicleOwned', vehicleProps,,vehicleData)
+									TriggerServerEvent('esx_truckshop:setVehicleOwned', vehicleProps)
 								end
 								
 								ESX.ShowNotification(_U('truck_purchased'))
@@ -313,7 +313,7 @@ end)
 Citizen.CreateThread(function()
 	local blip = AddBlipForCoord(Config.Zones.ShopEntering.Pos.x, Config.Zones.ShopEntering.Pos.y, Config.Zones.ShopEntering.Pos.z)
 
-	SetBlipSprite (blip, 326)
+	SetBlipSprite (blip, 67)
 	SetBlipDisplay(blip, 4)
 	SetBlipScale  (blip, 1.0)
 	SetBlipAsShortRange(blip, true)

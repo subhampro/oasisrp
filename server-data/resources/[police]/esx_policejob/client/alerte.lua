@@ -68,7 +68,7 @@ AddEventHandler('TireEntendu', function(gx, gy, gz)
           ESX.ShowAdvancedNotification(
                'LSPD INFORMATION', 
                'CENTRAL LSPD', 
-               'Call d\'Regarding Gunfire\n\n~g~Y~s~ To take l\'call\n\n~r~X~s~ To Refuse.', 'CHAR_CHAT_CALL', 8)
+               'Call \'Regarding Gunfire\n\n~g~Y~s~ To take \'call\n\n~r~X~s~ To Refuse.', 'CHAR_CHAT_CALL', 8)
           coordsX = gx
           coordsY = gy
           coordsZ = gz
@@ -107,7 +107,7 @@ AddEventHandler('PriseAppel', function(name)
           PlaySoundFrontend(-1, "On_Call_Player_Join", "DLC_HEISTS_GENERAL_FRONTEND_SOUNDS", 0)
           PlaySoundFrontend(-1, "On_Call_Player_Join", "DLC_HEISTS_GENERAL_FRONTEND_SOUNDS", 0)
           PlaySoundFrontend(-1, "On_Call_Player_Join", "DLC_HEISTS_GENERAL_FRONTEND_SOUNDS", 0)
-          ESX.ShowNotification('~w~L\'agent ~g~'..name..'~w~ à pris l\'appel')
+          ESX.ShowNotification('~w~L\'Agent ~g~'..name..'~w~ Took The\'Call')
      end
 end)
 
@@ -124,7 +124,7 @@ Citizen.CreateThread(function()
           elseif IsControlJustPressed(1, 73) and alerteEnCours then
                AlertePrise = false
                alerteEnCours = false
-               ESX.ShowNotification('~w~You refused l\'the Call')
+               ESX.ShowNotification('~w~You refused \'The Call')
           end
      end
 end)
