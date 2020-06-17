@@ -44,16 +44,17 @@ MySQL.ready(function()
 end)
 
 RegisterServerEvent('esx_truckshop:setVehicleOwned')
-AddEventHandler('esx_truckshop:setVehicleOwned', function(vehicleProps)
+AddEventHandler('esx_truckshop:setVehicleOwned', function(vehicleProps,vehicleData)
 	local _source = source
 	local xPlayer = ESX.GetPlayerFromId(_source)
 
-	MySQL.Async.execute('INSERT INTO owned_vehicles (owner, plate, vehicle, Type) VALUES (@owner, @plate, @vehicle, @Type)',
+	MySQL.Async.execute('INSERT INTO owned_vehicles (owner, plate, vehicle, Type, modelname) VALUES (@owner, @plate, @vehicle, @Type, @modelname)',
 	{
 		['@owner']   = xPlayer.identifier,
 		['@plate']   = vehicleProps.plate,
 		['@vehicle'] = json.encode(vehicleProps),
-		['@Type']    = 'car'
+		['@Type']    = 'car',
+        ['@modelname'] = vehicleData.model
 	}, function(rowsChanged)
 		TriggerClientEvent('esx:showNotification', _source, _U('truck_belongs', vehicleProps.plate))
 	end)

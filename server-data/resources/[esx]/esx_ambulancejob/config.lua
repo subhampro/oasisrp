@@ -19,7 +19,7 @@ Config.BleedoutTimer              = 1200 * minute -- Time til the player bleeds 
 Config.EnablePlayerManagement     = false
 
 Config.RemoveWeaponsAfterRPDeath  = false
-Config.RemoveCashAfterRPDeath     = true
+Config.RemoveCashAfterRPDeath     = false
 Config.RemoveItemsAfterRPDeath    = false
 
 -- Let the player pay for respawning early, only if he can afford it.

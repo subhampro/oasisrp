@@ -164,7 +164,7 @@ function OpenShopMenu()
 								SetVehicleNumberPlateText(vehicle, newPlate)
 								
 								if Config.EnableOwnedVehicles then
-									TriggerServerEvent('esx_truckshop:setVehicleOwned', vehicleProps)
+									TriggerServerEvent('esx_truckshop:setVehicleOwned', vehicleProps,,vehicleData)
 								end
 								
 								ESX.ShowNotification(_U('truck_purchased'))
