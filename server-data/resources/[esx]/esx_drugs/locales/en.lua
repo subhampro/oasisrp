@@ -110,7 +110,7 @@ Locales ['en'] = {
   ['blip_lsdprocessing'] = 'LSD Herstellung',
   ['blip_SodiumHydroxideFarm'] = 'Sodium Hydroxide Farm',
   ['blip_SulfuricAcidFarm'] = 'SulfuricAcid Farm',
-  ['blip_heroinfield'] = 'Heroine Field',
-  ['blip_WeedFarm'] = 'Weed Farm',
+  ['blip_heroinf'] = 'Heroine Field',
+  ['blip_weedfarm'] = 'Weed Farm',
 }
 

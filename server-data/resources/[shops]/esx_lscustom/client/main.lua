@@ -354,7 +354,7 @@ function GetAction(data)
 	OpenLSMenu(elements, menuName, menuTitle, parent)
 end
 
---[[ Blips
+-- Blips
 Citizen.CreateThread(function()
 	for k,v in pairs(Config.Zones) do
 		local blip = AddBlipForCoord(v.Pos.x, v.Pos.y, v.Pos.z)
@@ -368,7 +368,7 @@ Citizen.CreateThread(function()
 		EndTextCommandSetBlipName(blip)
 	end
 end)
-]]--
+
 -- Activate menu when player is inside marker
 Citizen.CreateThread(function()
 	while true do

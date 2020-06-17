@@ -7,7 +7,9 @@ Locales['en'] = {
   ['press_custom'] = 'press ~INPUT_PICKUP~ to ~y~personalize~s~ your vehicle.',
   ['level'] = 'level %s',
   ['neon'] = 'neon',
-  ['blip_name'] = 'los Santos Customs',
+  ['blip_name'] = 'Los Santos Customs',
+  ['blip_names'] = 'Premium Car Upgrade',
+  
 -- Paint Colors
   -- Black
   ['black'] = 'black',

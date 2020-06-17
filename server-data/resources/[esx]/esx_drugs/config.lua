@@ -42,7 +42,7 @@ Config.GiveBlack = true -- give black money? if disabled it'll give regular cash
 
 Config.CircleZones = {
 	--Weed
-	WeedField = {coords = vector3(2224.64, 5577.03, 53.85), name = _U('blip_WeedFarm'), color = 25, sprite = 496, radius = 100.0},
+	WeedField = {coords = vector3(2224.64, 5577.03, 53.85), name = _U('blip_weedfarm'), color = 25, sprite = 496, radius = 100.0},
 	WeedProcessing = {coords = vector3(2329.12, 2571.86, 46.68), name = _U('blip_weedprocessing'), color = 25, sprite = 496, radius = 100.0},
 	
 	--meth
@@ -64,7 +64,7 @@ Config.CircleZones = {
 	thionylchlorideProcessing = {coords = vector3(1903.98, 4922.70, 48.16), name = _U('blip_lsdprocessing'),color = 25, sprite = 496, radius = 20.0},
 	
 	--Heroin
-	HeroinField = {coords = vector3(16.34, 6875.94, 12.64), name = _U('blip_heroinfield'), color = 25, sprite = 496, radius = 20},
+	HeroinField = {coords = vector3(16.34, 6875.94, 12.64), name = _U('blip_heroinf'), color = 25, sprite = 496, radius = 20},
 	HeroinProcessing = {coords = vector3(-65.43, 6243.36, 31.08), name = _U('blip_heroinprocessing'), color = 25, sprite = 496, radius = 100.0},
 
 	--DrugDealer
