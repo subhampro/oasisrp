@@ -95,6 +95,8 @@ Locales ['en'] = {
   ['moneywash_prompt'] = 'press ~INPUT_CONTEXT~ to open the ~r~MoneyWash~s~.',
   
   -- blips
+  ['blip_heroinfarm'] = 'Heroine Field',
+  ['blip_weedfarm'] = 'Weed Farm',
   ['blip_weedfield'] = 'Weed Field',
   ['blip_weedprocessing'] = 'Weed Processing',
   ['blip_methfield'] = 'Meth Field',
@@ -110,7 +112,6 @@ Locales ['en'] = {
   ['blip_lsdprocessing'] = 'LSD Herstellung',
   ['blip_SodiumHydroxideFarm'] = 'Sodium Hydroxide Farm',
   ['blip_SulfuricAcidFarm'] = 'SulfuricAcid Farm',
-  ['blip_heroinf'] = 'Heroine Field',
-  ['blip_weedfarm'] = 'Weed Farm',
+
 }
 

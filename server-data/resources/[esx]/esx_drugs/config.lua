@@ -38,7 +38,7 @@ Config.Licenses = {
 	chemicalslisence = 100000,
 }
 
-Config.GiveBlack = true -- give black money? if disabled it'll give regular cash.
+Config.GiveBlack = false -- give black money? if disabled it'll give regular cash.
 
 Config.CircleZones = {
 	--Weed
@@ -64,7 +64,7 @@ Config.CircleZones = {
 	thionylchlorideProcessing = {coords = vector3(1903.98, 4922.70, 48.16), name = _U('blip_lsdprocessing'),color = 25, sprite = 496, radius = 20.0},
 	
 	--Heroin
-	HeroinField = {coords = vector3(16.34, 6875.94, 12.64), name = _U('blip_heroinf'), color = 25, sprite = 496, radius = 20},
+	HeroinField = {coords = vector3(16.34, 6875.94, 12.64), name = _U('blip_heroinfarm'), color = 25, sprite = 496, radius = 20},
 	HeroinProcessing = {coords = vector3(-65.43, 6243.36, 31.08), name = _U('blip_heroinprocessing'), color = 25, sprite = 496, radius = 100.0},
 
 	--DrugDealer
