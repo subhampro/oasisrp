@@ -96,7 +96,12 @@ Locales['fr'] = {
   ['search_database_error_not_found'] = 'that ~y~registration number~s~ is ~r~not~s~ registered to an vehicle!',
   ['search_database_found'] = 'the vehicle is ~y~registered~s~ to ~b~%s~s~',
   -- Traffic interaction
+
   ['traffic_interaction'] = 'interaction Traffic',
+  ['Cone'] = 'cone',
+  ['Barrier'] = 'barrier',
+  ['Spikestrips'] = 'spikestrips',
+  ['Box'] = 'box',
   ['cone'] = 'cone',
   ['barrier'] = 'barrier',
   ['spikestrips'] = 'spikestrips',
