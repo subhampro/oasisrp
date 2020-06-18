@@ -50,7 +50,6 @@ files {
 
     'html/img/items/*.png', -- loads all in folder
     'html/img/items2/*.png',
---[[
     'html/img/items/beer.png',
     'html/img/items/binoculars.png',
     'html/img/items/bread.png',
@@ -128,7 +127,7 @@ files {
     'html/img/items/turtlebait.png',
 	'html/img/items/taco.png',
 	'html/img/items/monster.png',
-		'html/img/items2/2ct-gold-chain.png',
+	'html/img/items2/2ct-gold-chain.png',
 	'html/img/items2/5ct-gold-chain.png',
 	'html/img/items2/8ct-gold-chain.png',
 	'html/img/items2/10ct-gold-chain.png',
@@ -247,6 +246,10 @@ files {
 	'html/img/items2/steel.png',
 	'html/img/items2/sticky-bomb.png',
 	'html/img/items2/stun-gun.png',
+	'html/img/items2/chips.png',
+	'html/img/items2/cocacola.png',
+	'html/img/items2/cupcake.png', 
+	'html/img/items2/icetea.png',
 	'html/img/items2/sub-ammo.png',
 	'html/img/items2/sweeper-shotgun.png',
 	'html/img/items2/switchblade.png',
@@ -264,6 +267,5 @@ files {
 	'html/img/items2/whiskey.png',
 	'html/img/items2/white-pearl.png',
 	'html/img/items2/wood.png',
-	'html/img/items2/wrench.png',
-    ]]
+	'html/img/items2/wrench.png'
 }
