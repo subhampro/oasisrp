@@ -17,7 +17,22 @@ files {
 	'html/img/croquettes.png',
 	'html/img/water.png',
 	'html/img/plus.png',
-	'html/img/minus.png'
+	'html/img/minus.png',
+    'html/img/phone.png',
+	'html/img/beer.png',
+	'html/img/chips.png',
+	'html/img/chocolate.png',
+	'html/img/cigarette.png',
+	'html/img/cupcake.png',
+	'html/img/cocacola.png',
+	'html/img/coffe.png',
+	'html/img/hamburger.png',
+	'html/img/icetea.png',
+	'html/img/joint.png',
+	'html/img/phone.png',
+	'html/img/sandwich.png',
+	'html/img/vodka.png',
+	'html/img/whiskey.png'
 }
 
 ui_page 'html/ui.html'

@@ -5,7 +5,7 @@ AddEventHandler('esx_illegal:pickedUpCocaLeaf', function()
 	local xPlayer = ESX.GetPlayerFromId(source)
 	local xItem = xPlayer.getInventoryItem('coca_leaf')
 
-	if xItem.limit ~= -1 and (xItem.count + 1) > xItem.limit then
+	if xItem.weight ~= -1 and (xItem.count + 1) > xItem.weight then
 		TriggerClientEvent('esx:showNotification', _source, _U('coca_leaf_inventoryfull'))
 	else
 		xPlayer.addInventoryItem(xItem.name, 1)
@@ -21,7 +21,7 @@ AddEventHandler('esx_illegal:processCocaLeaf', function()
 			local xPlayer = ESX.GetPlayerFromId(_source)
 			local xCocaLeaf, xCoke = xPlayer.getInventoryItem('coca_leaf'), xPlayer.getInventoryItem('coke')
 
-			if xCoke.limit ~= -1 and (xCoke.count + 1) > xCoke.limit then
+			if xCoke.weight ~= -1 and (xCoke.count + 1) > xCoke.weight then
 				TriggerClientEvent('esx:showNotification', _source, _U('coke_processingfull'))
 			elseif xCocaLeaf.count < 3 then
 				TriggerClientEvent('esx:showNotification', _source, _U('coke_processingenough'))

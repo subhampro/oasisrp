@@ -40,7 +40,7 @@ function LoadShop()
 		end
 
 		table.insert(ShopItems[shopResult[i].store], {
-			label = itemInformation[shopResult[i].item].label,
+			label = shopResult[i].label,
 			item  = shopResult[i].item,
 			price = shopResult[i].price,
 		})
