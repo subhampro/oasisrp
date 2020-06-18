@@ -101,13 +101,13 @@ function OpenCloakroomMenu()
 
 	local elements = {
 		{ label = _U('citizen_wear'), value = 'citizen_wear' },
-		--{ label = 'Tenue De Police', value = 'tenu_lspd' },
-		--{ label = 'Tenue De Police Armé', value = 'tenu_ma' },
-		{ label = 'Tenue Hiver', value = 'tenu_hiv'},
-		--{ label = 'Tenue SWAT 1', value = 'tenu_swat'},
-		{ label = 'Tenue SWAT ', value = 'tenu_swatgr'},
-		{ label = 'Tenue DOA', value = 'tenu_doag' },
-		--{ label = _U('bullet_wear'), value = 'bullet_wear' },
+		--{ label = 'Police uniform', value = 'tenu_lspd' },
+		--{ label = 'Armed Police Outfit', value = 'tenu_ma' },
+		{ label = 'Winter outfit', value = 'tenu_hiv'},
+		--{ label = 'SWAT 1 outfit', value = 'tenu_swat'},
+		--{ label = 'SWAT outfit', value = 'tenu_swatgr'},
+		--{ label = 'DOA outfit', value = 'tenu_doag' },
+		{ label = _U('bullet_wear'), value = 'bullet_wear'},
 	}
 
 	
@@ -878,9 +878,9 @@ function OpenPoliceActionsMenu()
 				{label = '👮 Deploy \'escort (2)', value = 'spawn2'},  
 			--	{label = '🔫 Donne des armes', value = 'giveweapons'},
 				{label = '🗡️ Attack nearest player', value = 'playerattack'},
-				{label = '🚘 Vehicle: Fix', value = 'fix'},
-				{label = '🛫 Go Away', value = 'wander'},
-				{label = '🔊 Follow me', value = 'follow'},
+				-- {label = '🚘 Vehicle: Fix', value = 'fix'},
+				-- {label = '🛫 Go Away', value = 'wander'},
+				-- {label = '🔊 Follow me', value = 'follow'},
 				{label = '🗑️ Remove', value = 'delete'},
 			--	{label = '⬅️ Sortir menu', value = 'exit'}
 			}
