@@ -248,13 +248,13 @@ Config.AuthorizedHelicopters = {
 Config.Uniforms = {
 	recruit_wear = {
 		male = {
-			['tshirt_1'] = 92,  ['tshirt_2'] = 16,
-			['torso_1'] = 39,   ['torso_2'] = 1,
+			['tshirt_1'] = 122,  ['tshirt_2'] = 0,
+			['torso_1'] = 19,   ['torso_2'] = 0,
 			['decals_1'] = 0,   ['decals_2'] = 0,
-			['arms'] = 39,
-			['pants_1'] = 24,   ['pants_2'] = 2,
-			['shoes_1'] = 10,   ['shoes_2'] = 0,
-			['helmet_1'] = 1,  ['helmet_2'] = 0,
+			['arms'] = 35,
+			['pants_1'] = 32,   ['pants_2'] = 1,
+			['shoes_1'] = 13,   ['shoes_2'] = 0,
+			['helmet_1'] = 58,  ['helmet_2'] = 2,
 			['chain_1'] = 0,    ['chain_2'] = 0,
 			['ears_1'] = 2,     ['ears_2'] = 0,
 			['bproof_1'] = 10,     ['bproof_2'] = 0
