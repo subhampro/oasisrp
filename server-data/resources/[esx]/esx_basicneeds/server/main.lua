@@ -23,11 +23,11 @@ ESX.RegisterUsableItem('water', function(source)
 end)
 
 
-ESX.RegisterUsableItem('cigarette', function(source)
-    local xPlayer = ESX.GetPlayerFromId(source)
-    xPlayer.removeInventoryItem('cigarette', 1)
-    xPlayer.showNotification('That was cool which will reduce Stres.. right?')
-end)
+-- ESX.RegisterUsableItem('cigarette', function(source)
+--     local xPlayer = ESX.GetPlayerFromId(source)
+--     xPlayer.removeInventoryItem('cigarette', 1)
+--     xPlayer.showNotification('That was cool which will reduce Stres.. right?')
+-- end)
 
 
 
@@ -36,7 +36,7 @@ ESX.RegisterUsableItem('chips', function(source)
 	xPlayer.removeInventoryItem('chips', 1)
 	TriggerClientEvent('esx_status:add', source, 'hunger', 20000)
 	TriggerClientEvent('esx_basicneeds:onEat', source)
-	xPlayer.removeInventoryItem('cigarette', 1)
+	xPlayer.removeInventoryItem('chips', 1)
 	xPlayer.showNotification('You have eatten one Packet of Chips !')
 end)
 
