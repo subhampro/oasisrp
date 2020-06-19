@@ -21,6 +21,13 @@ Config.Zones = {
 		}
 	},
 
+	YouTool = {
+		Items = {},
+		Pos = {
+			{x = 2016.76,  y = 4987.61, z = 42.1}
+		}
+	},
+
 	RobsLiquor = {
 		Items = {},
 		Pos = {
@@ -35,7 +42,7 @@ Config.Zones = {
 			{x = -1037.618,  y = -2737.399,   z = 19.169} 
 		}
 	},
-
+	
 	LTDgasoline = {
 		Items = {},
 		Pos = {
