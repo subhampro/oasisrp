@@ -1,91 +1,91 @@
 var tableauQuestion = [
 	{
-		question: "Jeśli masz 80 km/h, a zbliżasz się do terenu zabudowanego, musisz:",
-		propositionA: "Przyspieszyć",
-		propositionB: "Zahamować po czym jechać 50 km/h",
-		propositionC: "Zwolnić",
-		propositionD: "Zachować prędkość",
+		question: "If you're going 80 km/h, and you're approaching a residential area you must:",
+		propositionA: "You accelerate",
+		propositionB: "You keep your speed, if you do not pass other vehicles",
+		propositionC: "You slow down",
+		propositionD: "You keep your speed",
 		reponse: "C"
 	},
 
 	{
-		question: "Jeśli skręcasz w prawo na światłach bezkolizyjnych, ale widzisz przejście dla pieszych, co robisz:",
-		propositionA: "Przepuszczam pieszego",
-		propositionB: "Sprawdzam, czy w pobliżu nie ma innych pojazdów",
-		propositionC: "Zachowuje szczególną ostrożność i przejeżdżam",
-		propositionD: "Strzelam do pieszego i jadę dalej",
+		question: "If you're turning right at a traffic light, but see a pedestrian crossing what do you do:",
+		propositionA: "You pass the pedestrian",
+		propositionB: "You check that there is no other vehicles around",
+		propositionC: "You wait until the pedestrian has crossed",
+		propositionD: "You shoot the pedestrian and continue to drive",
 		reponse: "C"
 	},
 
 	{
-		question: "Bez wcześniejszego wskazania prędkość w obszarze zabudowanym wynosi: __ km/h",
-		propositionA: "40",
-		propositionB: "50",
-		propositionC: "60",
-		propositionD: "70",
+		question: "Without any prior indication, the speed in a residential area is: __ km/h",
+		propositionA: "30 km/h",
+		propositionB: "50 km/h",
+		propositionC: "40 km/h",
+		propositionD: "60 km/h",
 		reponse: "B"
 	},
 
 	{
-		question: "Przed każdą zmianą pasa ruchu należy:",
-		propositionA: "Spojżeć w lusterka",
-		propositionB: "Sprawdź swoje martwe pole",
-		propositionC: "Zasygnalizuj swoje zamiary",
-		propositionD: "Wszystkie powyższe",
+		question: "Before every lane change you must:",
+		propositionA: "Check your mirrors",
+		propositionB: "Check your blind spots",
+		propositionC: "Signal your intentions",
+		propositionD: "All of the above",
 		reponse: "D"
 	},
 
 	{
-		question: "Jaki poziom alkoholu we krwi NIE jest klasyfikowany jako jazda po pijanemu?",
-		propositionA: "0.02%",
-		propositionB: "0.19%",
-		propositionC: "0.05%",
-		propositionD: "0.04%",
-		reponse: "A"
+		question: "What blood alcohol level is classified as driving while intoxicated?",
+		propositionA: "0.05%",
+		propositionB: "0.18%",
+		propositionC: "0.08%",
+		propositionD: "0.06%",
+		reponse: "C"
 	},
 
 	{
-		question: "Kiedy możesz kontynuować jazdę na światłach?",
-		propositionA: "Kiedy zaświeci się zielone",
-		propositionB: "Kiedy nie ma nikogo na skrzyżowaniu",
-		propositionC: "Kiedy zaświeci się żółte",
-		propositionD: "Kiedy jest zielony lub czerwony ale skręcasz w prawo",
-		reponse: "A"
-	},
-
-	{
-		question: "Przewożąc ładunek gabarytowy możesz poruszać się tylko:",
-		propositionA: "Drogami do tego przeznaczonymi",
-		propositionB: "Nocami",
-		propositionC: "Drogami ekspresowymi",
-		propositionD: "Skrzyżowaniami o ruchu okrężnym",
-		reponse: "B"
-	},
-
-	{
-		question: "Posiadając prawo jazdy kategorii B możesz prowadzić :",
-		propositionA: "Pojazd samochodowy o dopuszczalnej masie całkowitej nieprzekraczającej 3.5 t, z wyjątkiem autobusu i motocykla",
-		propositionB: "Zespołem pojazdów złożonym z pojazdu, o którym mowa wyżej, oraz z przyczepy lekkiej",
-		propositionC: "Zespołem pojazdów złożonym z pojazdu, o którym mowa wyżej, oraz z przyczepy innej niż lekka, o ile łączna dopuszczalna masa całkowita zespołu tych pojazdów nie przekracza 4250 kg",
-		propositionD: "Wszystkie powyższe",
+		question: "When can you continue to drive at a traffic light?",
+		propositionA: "When it is green",
+		propositionB: "When there is nobody in the intersection",
+		propositionC: "You are in a school zone",
+		propositionD: "When it is green and / or red and you're turning right",
 		reponse: "D"
 	},
 
 	{
-		question: "Jedziesz autostradą, która wskazuje maksymalną prędkość 120 km/h. Większość aut jedzie z prędkością 140km/h, więc nie powinieneś jechać szybciej niż:",
+		question: "A pedestrian has a do not cross signal, what do you do?",
+		propositionA: "You let them pass",
+		propositionB: "You observe before continuing",
+		propositionC: "You wave to tell them to cross",
+		propositionD: "You continue because your traffic light is green",
+		reponse: "D"
+	},
+
+	{
+		question: "What is allowed when passing another vehicle",
+		propositionA: "You follow it closely to pass it faster",
+		propositionB: "You pass it without leaving the roadway",
+		propositionC: "You drive on the opposite side of the road to pass",
+		propositionD: "You exceed the speed limit to pass them",
+		reponse: "C"
+	},
+
+	{
+		question: "You are driving on a highway which indicates a maximum speed of 120 km/h. But most trafficers drive at 125 km/h, so you should not drive faster than:",
 		propositionA: "120 km/h",
-		propositionB: "130 km/h",
-		propositionC: "140 km/h",
-		propositionD: "150 km/h",
+		propositionB: "125 km/h",
+		propositionC: "130 km/h",
+		propositionD: "110 km/h",
 		reponse: "A"
 	},
 
 	{
-		question: "Wyprzedzając inne pojazdy należy:",
-		propositionA: "Zwolnić",
-		propositionB: "Trąbić na wyprzedzany pojazd",
-		propositionC: "Oglądać wyprzedzany pojazd",
-		propositionD: "Zwiększ prędkość",
+		question: "When you are overtaken by another vehicle it is important NOT to:",
+		propositionA: "Slow Down",
+		propositionB: "Check your mirrors",
+		propositionC: "Watch other drivers",
+		propositionD: "Increase your speed",
 		reponse: "D"
 	},
 ]

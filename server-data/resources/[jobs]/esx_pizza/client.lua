@@ -122,7 +122,7 @@ Citizen.CreateThread(function() --Thread lancement + livraison depuis le marker 
 			while notif == true do
 
 			TriggerEvent("pNotify:SendNotification", {
-				text = "Direction : " ..destinol.. " pour livrer la pizza",
+				text = "Direction : " ..destinol.. "to deliver the pizza",
 				type = "info",
 				queue = "global",
 				timeout = 4000,
@@ -137,7 +137,7 @@ Citizen.CreateThread(function() --Thread lancement + livraison depuis le marker 
 			DrawMarker(1,livpt[livr].x,livpt[livr].y,livpt[livr].z, 0, 0, 0, 0, 0, 0, 1.5001, 1.5001, 0.6001,0,255,0, 200, 0, 0, 0, 0)
 
 			if GetDistanceBetweenCoords(px,py,pz, GetEntityCoords(GetPlayerPed(-1),true)) < 3 then
-				HelpText("Appuyez sur ~INPUT_CONTEXT~ pour livrer la pizza",0,1,0.5,0.8,0.6,255,255,255,255)
+				HelpText("Press on~INPUT_CONTEXT~ to deliver the pizza",0,1,0.5,0.8,0.6,255,255,255,255)
 
 				if IsControlJustPressed(1,38) then
 
@@ -159,7 +159,7 @@ Citizen.CreateThread(function() --Thread lancement + livraison depuis le marker 
 						pourboire = math.random(100, 200)
 
 						TriggerEvent("pNotify:SendNotification", {
-							text = "Un petit pourboire : " .. pourboire .. "$",
+							text = "A small tip: " .. pourboire .. "$",
 							type = "success",
 							queue = "global",
 							timeout = 4000,
@@ -185,7 +185,7 @@ Citizen.CreateThread(function() --Thread lancement + livraison depuis le marker 
 			while notif2 == true do
 
 			TriggerEvent("pNotify:SendNotification", {
-				text = "Direction la pizzeria !",
+				text = "Direction the pizzeria !",
 				type = "info",
 				queue = "global",
 				timeout = 4000,
@@ -198,7 +198,7 @@ Citizen.CreateThread(function() --Thread lancement + livraison depuis le marker 
 			DrawMarker(1,pizzeria.x,pizzeria.y,pizzeria.z, 0, 0, 0, 0, 0, 0, 1.5001, 1.5001, 0.6001,0,255,0, 200, 0, 0, 0, 0)
 				
 				if GetDistanceBetweenCoords(pizzeria.x,pizzeria.y,pizzeria.z, GetEntityCoords(GetPlayerPed(-1),true)) < 3 then
-					HelpText("Appuyez sur ~INPUT_CONTEXT~ pour recuperer les pizzas",0,1,0.5,0.8,0.6,255,255,255,255)
+					HelpText("Press on~INPUT_CONTEXT~ to recover the pizzas",0,1,0.5,0.8,0.6,255,255,255,255)
 					
 					if IsVehicleModel(GetVehiclePedIsIn(GetPlayerPed(-1), true), GetHashKey("faggio2"))  then
 						
@@ -207,7 +207,7 @@ Citizen.CreateThread(function() --Thread lancement + livraison depuis le marker 
 							if IsInVehicle() then
 
 								TriggerEvent("pNotify:SendNotification", {
-									text = "Nous vous remercions de votre travail, voici votre paie : " .. paie .. "$",
+									text = "Thank you for your work, here is your pay : " .. paie .. "$",
 									type = "success",
 									queue = "global",
 									timeout = 4000,
@@ -238,7 +238,7 @@ Citizen.CreateThread(function() --Thread lancement + livraison depuis le marker 
 								while notifmoto1 == true do
 
 									TriggerEvent("pNotify:SendNotification", {
-										text = "Et la moto tu l'a oublié ?",
+										text = "And the motorbike you forgot it?",
 										type = "error",
 										queue = "global",
 										timeout = 4000,
@@ -257,7 +257,7 @@ Citizen.CreateThread(function() --Thread lancement + livraison depuis le marker 
 						while notifmoto2 == true do
 
 							TriggerEvent("pNotify:SendNotification", {
-								text = "Et la moto tu l'a oublié ?",
+								text = "And the motorbike you forgot it?",
 								type = "error",
 								queue = "global",
 								timeout = 4000,
@@ -296,7 +296,7 @@ Citizen.CreateThread(function() -- Thread de "fin de service" depuis le point ro
 			DrawMarker(1,pizzeriafin.x,pizzeriafin.y,pizzeriafin.z, 0, 0, 0, 0, 0, 0, 1.5001, 1.5001, 0.6001,255,0,0, 200, 0, 0, 0, 0)
 
 			if GetDistanceBetweenCoords(pizzeriafin.x, pizzeriafin.y, pizzeriafin.z, GetEntityCoords(GetPlayerPed(-1),true)) < 1.5 then
-				HelpText("Appuyez sur ~INPUT_CONTEXT~ pour arreter la livraison de ~r~pizza",0,1,0.5,0.8,0.6,255,255,255,255)
+				HelpText(" Press on ~INPUT_CONTEXT~ to stop delivery of ~r~Pizza",0,1,0.5,0.8,0.6,255,255,255,255)
 
 				if IsControlJustPressed(1,38) then
 
@@ -318,7 +318,7 @@ Citizen.CreateThread(function() -- Thread de "fin de service" depuis le point ro
 			            deleteCar( vehicleu )
 
 			 			TriggerEvent("pNotify:SendNotification", {
-					 		text = "Merci d'avoir travaillé, bonne journée",
+					 		text = "Thanks for working, have a nice day",
 			 				type = "success",
 			 				queue = "global",
 			 				timeout = 4000,
@@ -339,7 +339,7 @@ Citizen.CreateThread(function() -- Thread de "fin de service" depuis le point ro
 			            deleteCar( vehicleu )
 
 			 			TriggerEvent("pNotify:SendNotification", {
-					 		text = "Merci quand même (pour rien), bonne journée",
+					 		text = "Thanks anyway (for nothing), have a nice day",
 			 				type = "error",
 			 				queue = "global",
 			 				timeout = 4000,

@@ -63,7 +63,7 @@
 
 
   "serviceCall": [{
-      "display": "LSPD",
+      "display": "POLICE",
       "backgroundColor": "blue",
       "subMenu": [{
           "title": "Send Message",
@@ -75,7 +75,7 @@
       ]
     },
     {
-      "display": "LSMC",
+      "display": "Ambulance",
       "backgroundColor": "red",
       "subMenu": [{
         "title": "Send Message",
@@ -87,7 +87,7 @@
     ]
     },
     {
-      "display": "Benny's",
+      "display": "Mechanic",
       "backgroundColor": "green",
       "subMenu": [
         {
@@ -100,6 +100,22 @@
       ]
 
     },
+
+        {
+      "display": "Advance Mechanic",
+      "backgroundColor": "green",
+      "subMenu": [
+        {
+          "title": "Send Message",
+          "eventName": "esx_addons_gcphone:call",
+          "type": {
+            "number": "groove"
+          }
+        }
+      ]
+
+    },
+
     {
       "display": "Taxi",
       "backgroundColor": "green",

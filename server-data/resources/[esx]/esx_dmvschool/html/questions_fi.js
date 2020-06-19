@@ -1,91 +1,91 @@
 var tableauQuestion = [
 	{
-		question: "Jos ajat 80km/h ja vastaan on tulossa asutus alue mitä teet ?",
-		propositionA: "Painat kaasua että pääset mahollisimman nopeaa pois",
-		propositionB: "Voit ajaa samaa vauhtia jos alueella ei ole muita autoja",
-		propositionC: "Sinun pitää hidastaa",
-		propositionD: "Voit jatkaa samaan malliin",
+		question: "If you're going 80 km/h, and you're approaching a residential area you must:",
+		propositionA: "You accelerate",
+		propositionB: "You keep your speed, if you do not pass other vehicles",
+		propositionC: "You slow down",
+		propositionD: "You keep your speed",
 		reponse: "C"
 	},
 
 	{
-		question: "Kun olet kääntymässä vasemmalle vihreistä valoista, näet jalankulkian jalkakäytävällä. Kummalla on lupa mennä ensin.",
-		propositionA: "Jalankulkijalla koska he voivat mennä tien yli millä valoilla tahansa",
-		propositionB: "Sinulla koska valo oli vihreä",
-		propositionC: "Jalankulkijalla, koska hänellä palaa vihreä valo",
-		propositionD: "Sinulla koska ajoneuvolla on aina oikeus ensin",
+		question: "If you're turning right at a traffic light, but see a pedestrian crossing what do you do:",
+		propositionA: "You pass the pedestrian",
+		propositionB: "You check that there is no other vehicles around",
+		propositionC: "You wait until the pedestrian has crossed",
+		propositionD: "You shoot the pedestrian and continue to drive",
 		reponse: "C"
 	},
 
 	{
-		question: "Muualla ilmoittamatta, sallittu nopeus asutusalueella on ____ km/h.",
-		propositionA: "50",
-		propositionB: "55",
-		propositionC: "65",
-		propositionD: "70",
-		reponse: "A"
-	},
-
-	{
-		question: "Ennen jokaista kaistan vaihtoa, sinun pitäisi?",
-		propositionA: "Katsoa peilit",
-		propositionB: "Katsoa kuolleet kulmat",
-		propositionC: "Näyttää vilkuilla mitä aijot tehdä",
-		propositionD: "Kaikki yllä mainitut",
-		reponse: "D"
-	},
-
-	{
-		question: "Minkä veren alkoholipitoisuus luokitellaan päihtyneeksi?",
-		propositionA: "0.2 promillea",
-		propositionB: "0.8 promillea",
-		propositionC: "0.5 promillea",
-		propositionD: "0.4 promillea",
-		reponse: "C"
-	},
-
-	{
-		question: "Sinun on vedettävä sivuun ja pysähtyä, kunnes hälyytysajoneuvo on ajanut ohi sireenit päällä, ellei:",
-		propositionA: "Sinulla ole kiirre",
-		propositionB: "Jos hälyytysajoneuvolla on toisella kaistalla tilaa",
-		propositionC: "Olet koulunalueella",
-		propositionD: "Olet risteyksessä",
-		reponse: "D"
-	},
-
-	{
-		question: "Täytyykö poliisin vilkkuviin valoihin pysähtyä jos ne seuraavat sinua?",
-		propositionA: "Ei, jos poliisilla ei ole sireenejä päällä",
-		propositionB: "Kyllä",
-		propositionC: "Riippuu tilanteesta",
-		propositionD: "Ei",
+		question: "Without any prior indication, the speed in a residential area is: __ km/h",
+		propositionA: "30 km/h",
+		propositionB: "50 km/h",
+		propositionC: "40 km/h",
+		propositionD: "60 km/h",
 		reponse: "B"
 	},
 
 	{
-		question: "Mikä seuraavista on sallittua kun aloitat ohittaan ajoneuvoa?",
-		propositionA: "Ajaminen lähellä ennen ohitusta",
-		propositionB: "Koitat ajaa katukivetyksen kautta",
-		propositionC: "Ajaminen vastakkaisella kaistalla",
-		propositionD: "Nopeusrajoituksen ylittäminen",
-		reponse: "A"
-	},
-
-	{
-		question: "Ajat moottoritiellä, jonka nopeus on 120 km/h. Suurinosa liikenteestä ajaa 130km/h, joten sinun ei pitäisi ajaa nopeampaa kuin",
-		propositionA: "80 kmh",
-		propositionB: "40 kmh",
-		propositionC: "50 kmh",
-		propositionD: "120 kmh",
+		question: "Before every lane change you must:",
+		propositionA: "Check your mirrors",
+		propositionB: "Check your blind spots",
+		propositionC: "Signal your intentions",
+		propositionD: "All of the above",
 		reponse: "D"
 	},
 
 	{
-		question: "Kun sinut ohittaa toinen ajoneuvo, mitä sinun EI pitäisi tehdä?",
-		propositionA: "Hiljentää",
-		propositionB: "Tarkistaa peilit",
-		propositionC: "Katsot toista kuskia",
-		propositionD: "Kiihdyttää",
+		question: "What blood alcohol level is classified as driving while intoxicated?",
+		propositionA: "0.05%",
+		propositionB: "0.18%",
+		propositionC: "0.08%",
+		propositionD: "0.06%",
+		reponse: "C"
+	},
+
+	{
+		question: "When can you continue to drive at a traffic light?",
+		propositionA: "When it is green",
+		propositionB: "When there is nobody in the intersection",
+		propositionC: "You are in a school zone",
+		propositionD: "When it is green and / or red and you're turning right",
+		reponse: "D"
+	},
+
+	{
+		question: "A pedestrian has a do not cross signal, what do you do?",
+		propositionA: "You let them pass",
+		propositionB: "You observe before continuing",
+		propositionC: "You wave to tell them to cross",
+		propositionD: "You continue because your traffic light is green",
+		reponse: "D"
+	},
+
+	{
+		question: "What is allowed when passing another vehicle",
+		propositionA: "You follow it closely to pass it faster",
+		propositionB: "You pass it without leaving the roadway",
+		propositionC: "You drive on the opposite side of the road to pass",
+		propositionD: "You exceed the speed limit to pass them",
+		reponse: "C"
+	},
+
+	{
+		question: "You are driving on a highway which indicates a maximum speed of 120 km/h. But most trafficers drive at 125 km/h, so you should not drive faster than:",
+		propositionA: "120 km/h",
+		propositionB: "125 km/h",
+		propositionC: "130 km/h",
+		propositionD: "110 km/h",
+		reponse: "A"
+	},
+
+	{
+		question: "When you are overtaken by another vehicle it is important NOT to:",
+		propositionA: "Slow Down",
+		propositionB: "Check your mirrors",
+		propositionC: "Watch other drivers",
+		propositionD: "Increase your speed",
 		reponse: "D"
 	},
 ]

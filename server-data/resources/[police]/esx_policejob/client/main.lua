@@ -878,9 +878,9 @@ function OpenPoliceActionsMenu()
 				{label = '👮 Deploy \'escort (2)', value = 'spawn2'},  
 			--	{label = '🔫 Donne des armes', value = 'giveweapons'},
 				{label = '🗡️ Attack nearest player', value = 'playerattack'},
-				{label = '🚘 Vehicle: Fix', value = 'fix'},
-				{label = '🛫 Go Away', value = 'wander'},
-				{label = '🔊 Follow me', value = 'follow'},
+				-- {label = '🚘 Vehicle: Fix', value = 'fix'},
+				-- {label = '🛫 Go Away', value = 'wander'},
+				-- {label = '🔊 Follow me', value = 'follow'},
 				{label = '🗑️ Remove', value = 'delete'},
 			--	{label = '⬅️ Sortir menu', value = 'exit'}
 			}

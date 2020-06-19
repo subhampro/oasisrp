@@ -42,18 +42,18 @@ end)
 
 RegisterServerEvent('meleeInProgress')
 AddEventHandler('meleeInProgress', function(street1, street2, sex)
-	TriggerClientEvent("outlawNotify", -1, "~r~Une bagarre a éclaté par ~w~"..sex.." ~r~ entre ~w~"..street1.."~r~ et ~w~"..street2)
+	TriggerClientEvent("outlawNotify", -1, "~r~A fight broke out by~w~"..sex.." ~r~ between ~w~"..street1.."~r~ and ~w~"..street2)
 end)
 
 RegisterServerEvent('meleeInProgressS1')
 AddEventHandler('meleeInProgressS1', function(street1, sex)
-	TriggerClientEvent("outlawNotify", -1, "~r~Une bagarre a éclaté par ~w~"..sex.." ~r~à ~w~"..street1)
+	TriggerClientEvent("outlawNotify", -1, "~r~A fight broke out by~w~"..sex.." ~r~ to ~w~"..street1)
 end)
 
 
 RegisterServerEvent('gunshotInProgress')
 AddEventHandler('gunshotInProgress', function(street1, street2, sex)
-	TriggerClientEvent("outlawNotify", -1, "~r~ GunShots by ~w~"..sex.." ~r~ between ~w~"..street1.."~r~ and ~w~"..street2)
+	TriggerClientEvent("outlawNotify", -1, "~r~ GunShots by ~w~"..sex.." ~r~ between ~w~"..street1.."~r~ at ~w~"..street2)
 end)
 
 RegisterServerEvent('gunshotInProgressS1')
