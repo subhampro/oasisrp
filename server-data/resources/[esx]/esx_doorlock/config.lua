@@ -184,8 +184,9 @@ Config.DoorList = {
 		
 	},
 
+-- PD GATE TO GARADGE
 	{
-		objName = 'v_ilev_phroofdoor',
+		objName = 'v_ilev_cbankvaulgate01',
 		objYaw = 0.0,
 		objCoords  = vector3(423.42, -992.78, 30.79),
 		textCoords = vector3(423.42, -992.78, 31.2),
