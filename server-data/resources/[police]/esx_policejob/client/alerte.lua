@@ -61,70 +61,70 @@ end)
 
 -- L'OPTIIMISATIOOOOOOOOOOOOOOOOOOOOON
 
-RegisterNetEvent('TireEntendu')
-AddEventHandler('TireEntendu', function(gx, gy, gz)
-     if PlayerData.job ~= nil and PlayerData.job.name == 'police' then
-          --PlaySoundFrontend(-1, "Start_Squelch", "CB_RADIO_SFX", 0)
-          ESX.ShowAdvancedNotification(
-               'LSPD INFORMATION', 
-               'CENTRAL LSPD', 
-               'Call \'Regarding Gunfire\n\n~g~Y~s~ To take \'call\n\n~r~X~s~ To Refuse.', 'CHAR_CHAT_CALL', 8)
-          coordsX = gx
-          coordsY = gy
-          coordsZ = gz
-          Citizen.Wait(1000)
-          alerteEnCours = true
-          --PlaySoundFrontend(-1, "End_Squelch", "CB_RADIO_SFX", 0)
-     end
-end)
+-- RegisterNetEvent('TireEntendu')
+-- AddEventHandler('TireEntendu', function(gx, gy, gz)
+--      if PlayerData.job ~= nil and PlayerData.job.name == 'police' then
+--           --PlaySoundFrontend(-1, "Start_Squelch", "CB_RADIO_SFX", 0)
+--           ESX.ShowAdvancedNotification(
+--                'LSPD INFORMATION', 
+--                'CENTRAL LSPD', 
+--                'Call \'Regarding Gunfire\n\n~g~Y~s~ To take \'call\n\n~r~X~s~ To Refuse.', 'CHAR_CHAT_CALL', 8)
+--           coordsX = gx
+--           coordsY = gy
+--           coordsZ = gz
+--           Citizen.Wait(1000)
+--           alerteEnCours = true
+--           --PlaySoundFrontend(-1, "End_Squelch", "CB_RADIO_SFX", 0)
+--      end
+-- end)
 
-RegisterNetEvent('TireEntenduBlips')
-AddEventHandler('TireEntenduBlips', function(gx, gy, gz)
-     if PlayerData.job ~= nil and PlayerData.job.name == 'police' then
-          if AlertePrise then
-               blipId = AddBlipForCoord(gx, gy, gz)
-               SetBlipSprite(blipId, 4)
-               SetBlipScale(blipId, 1.0)
-               SetBlipColour(blipId, 1)
-               SetBlipRoute(blipId,  true)
-               BeginTextCommandSetBlipName("STRING")
-               AddTextComponentString('Gunshots')
-               EndTextCommandSetBlipName(blipId)
-               SetBlipAsShortRange(blipId, true)
-               table.insert(blips, blipId)
-               Wait(60 * 1000)
-               for i, blipId in pairs(blips) do 
-                    RemoveBlip(blipId)
-               end
-          end
-     end
-end)
+-- RegisterNetEvent('TireEntenduBlips')
+-- AddEventHandler('TireEntenduBlips', function(gx, gy, gz)
+--      if PlayerData.job ~= nil and PlayerData.job.name == 'police' then
+--           if AlertePrise then
+--                blipId = AddBlipForCoord(gx, gy, gz)
+--                SetBlipSprite(blipId, 4)
+--                SetBlipScale(blipId, 1.0)
+--                SetBlipColour(blipId, 1)
+--                SetBlipRoute(blipId,  true)
+--                BeginTextCommandSetBlipName("STRING")
+--                AddTextComponentString('Gunshots')
+--                EndTextCommandSetBlipName(blipId)
+--                SetBlipAsShortRange(blipId, true)
+--                table.insert(blips, blipId)
+--                Wait(60 * 1000)
+--                for i, blipId in pairs(blips) do 
+--                     RemoveBlip(blipId)
+--                end
+--           end
+--      end
+-- end)
 
-RegisterNetEvent('PriseAppel')
-AddEventHandler('PriseAppel', function(name)
-     if PlayerData.job ~= nil and PlayerData.job.name == 'police' then
-          --PlaySoundFrontend(-1, "1st_Person_Transition", "PLAYER_SWITCH_CUSTOM_SOUNDSET", 0)
-          PlaySoundFrontend(-1, "On_Call_Player_Join", "DLC_HEISTS_GENERAL_FRONTEND_SOUNDS", 0)
-          PlaySoundFrontend(-1, "On_Call_Player_Join", "DLC_HEISTS_GENERAL_FRONTEND_SOUNDS", 0)
-          PlaySoundFrontend(-1, "On_Call_Player_Join", "DLC_HEISTS_GENERAL_FRONTEND_SOUNDS", 0)
-          ESX.ShowNotification('~w~L\'Agent ~g~'..name..'~w~ Took The\'Call')
-     end
-end)
+-- RegisterNetEvent('PriseAppel')
+-- AddEventHandler('PriseAppel', function(name)
+--      if PlayerData.job ~= nil and PlayerData.job.name == 'police' then
+--           --PlaySoundFrontend(-1, "1st_Person_Transition", "PLAYER_SWITCH_CUSTOM_SOUNDSET", 0)
+--           PlaySoundFrontend(-1, "On_Call_Player_Join", "DLC_HEISTS_GENERAL_FRONTEND_SOUNDS", 0)
+--           PlaySoundFrontend(-1, "On_Call_Player_Join", "DLC_HEISTS_GENERAL_FRONTEND_SOUNDS", 0)
+--           PlaySoundFrontend(-1, "On_Call_Player_Join", "DLC_HEISTS_GENERAL_FRONTEND_SOUNDS", 0)
+--           ESX.ShowNotification('~w~L\'Agent ~g~'..name..'~w~ Took The\'Call')
+--      end
+-- end)
 
-Citizen.CreateThread(function()
-     while true do
-          Citizen.Wait(1)
-          if IsControlJustPressed(1, 246) and alerteEnCours then
-               if PlayerData.job ~= nil and PlayerData.job.name == 'police' then
-                    TriggerServerEvent('PriseAppelServeur')
-                    AlertePrise = true
-                    TriggerEvent('TireEntenduBlips', coordsX, coordsY, coordsZ)
-                    alerteEnCours = false
-               end
-          elseif IsControlJustPressed(1, 73) and alerteEnCours then
-               AlertePrise = false
-               alerteEnCours = false
-               ESX.ShowNotification('~w~You refused \'The Call')
-          end
-     end
-end)
+-- Citizen.CreateThread(function()
+--      while true do
+--           Citizen.Wait(1)
+--           if IsControlJustPressed(1, 246) and alerteEnCours then
+--                if PlayerData.job ~= nil and PlayerData.job.name == 'police' then
+--                     TriggerServerEvent('PriseAppelServeur')
+--                     AlertePrise = true
+--                     TriggerEvent('TireEntenduBlips', coordsX, coordsY, coordsZ)
+--                     alerteEnCours = false
+--                end
+--           elseif IsControlJustPressed(1, 73) and alerteEnCours then
+--                AlertePrise = false
+--                alerteEnCours = false
+--                ESX.ShowNotification('~w~You refused \'The Call')
+--           end
+--      end
+-- end)

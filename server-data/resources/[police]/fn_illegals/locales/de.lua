@@ -1,6 +1,6 @@
 Locales['de'] = {
-    ["marker_do_txt"] = "~INPUT_TALK~ Pour Ouvrir Le Menu Illégal",
-    ["not_items_notify"] = "Tu n'as pas de coke/weed/opium/meth",
-    ["dialog_title"] = "Combien ? ",
-    ["amount_invalid"] = "Montant Invalide",
+    ["marker_do_txt"] = "~INPUT_TALK~ To Open The Illegal Menu",
+    ["not_items_notify"] = "You don't have any coke/weed/opium/meth",
+    ["dialog_title"] = "How many ? ",
+    ["amount_invalid"] = "Invalid amount",
 }

@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Terminal mobile de données de la police</title>
+    <title>Police mobile data terminal</title>
 
     <link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.min.css" />
     <link rel="stylesheet" type="text/css" href="font-awesome/css/font-awesome.min.css" />
@@ -72,21 +72,21 @@
 		  <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
-                    <span class="sr-only">Basculer la navigation</span>
+                    <span class="sr-only">Toggle navigation</span>
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="crimes_list.html">Terminal mobile de données de la police</a>
+                <a class="navbar-brand" href="crimes_list.html">Police mobile data terminal</a>
             </div>
             <div class="collapse navbar-collapse navbar-ex1-collapse">
                 <ul style="width: 145px;" id="active" class="nav navbar-nav side-nav">
-                    <li id="warrants_menu" class="selected"><a onclick="load_menu('warrants');"><i class="fa fa-bullseye"></i> Avertissements</a></li>
+                    <li id="warrants_menu" class="selected"><a onclick="load_menu('warrants');"><i class="fa fa-bullseye"></i> Warnings</a></li>
                     <li id="bolos_menu"><a onclick="load_menu('bolos');"><i class="fa fa-tasks"></i> Bolos</a></li>
-                    <li id="arrests_menu"><a onclick="load_menu('arrests');"><i class="fa fa-tasks"></i> Arrestations</a></li>
-										<li id="report_menu"><a onclick="load_menu('new_report');"><i class="fa fa-tasks"></i> Créer un enregistrement</a></li>
-										<li id="search_li"><a onclick="load_menu('search_menu');"><i class="fa fa-search"></i> Rechercher</a></li>
-										<li><a onclick="CloseTerminal();"><i class="fa fa-window-close"></i> Fermer Terminal</a></li>
+                    <li id="arrests_menu"><a onclick="load_menu('arrests');"><i class="fa fa-tasks"></i> Arrests</a></li>
+										<li id="report_menu"><a onclick="load_menu('new_report');"><i class="fa fa-tasks"></i>Create Record</a></li>
+										<li id="search_li"><a onclick="load_menu('search_menu');"><i class="fa fa-search"></i> Search</a></li>
+										<li><a onclick="CloseTerminal();"><i class="fa fa-window-close"></i> Close Terminal</a></li>
                 </ul>
             </div>
         </nav>
@@ -113,10 +113,10 @@
 										<thead>
 											<tr role="row" class="sui-columnheader">
 												<th class="sui-headercell"><a class="sui-link sui-unselectable">Officier</a></th>
-												<th class="sui-headercell"><a id="suspect_title" class="sui-link sui-unselectable">Nom du suspect</a></th>
+												<th class="sui-headercell"><a id="suspect_title" class="sui-link sui-unselectable">Name of Suspect</a></th>
 												<th class="sui-headercell"><a class="sui-link sui-unselectable">Description</a></th>
 												<th role="columnheader" class="sui-headercell"><a class="sui-link sui-unselectable">Charges</a></th>
-												<th class="sui-headercell"><a class="sui-link sui-unselectable">Date d'ajout</a></th>
+												<th class="sui-headercell"><a class="sui-link sui-unselectable">Date Added</a></th>
 												<th class="sui-headercell"><a class="sui-link sui-unselectable">Actions</a></th>
 											</tr>
 										</thead>
@@ -157,11 +157,11 @@
             </div>
 			<div id="form_page" style="display: none;" class="row">
 				<div class="row text-center">
-					<h2>Nouvel enregistrement dans la base de données</h2>
+					<h2>New record in the Database</h2>
 				</div>
 				<div>
 					<label for="target_ident" class="col-md-2">
-						Cible:
+						Target:
 					</label>
 					<div class="col-md-9">
 						<input style="color: black;" type="text" class="form-control" id="target_ident" placeholder="Enter Data">
@@ -198,24 +198,24 @@
 					</label>
 					<div class="col-md-9">
 						<select style="color: black;" name="type_memes" id="type_memes" class="form-control">
-							<option value="none">Sélectionnez Options</option>
-							<option value="war">Avertissement</option>
+							<option value="none">Select Options</option>
+							<option value="war">Warning</option>
 							<option value="bol">Bolo</option>
-							<option value="arrest">Arrestation</option>
+							<option value="arrest">Arrest</option>
 						</select>
 					</div>            
 				</div>
 				<div class="row">
 					<div class="col-md-12" style="text-align: center; margin-top: 14px;">
 						<button style="background-color: #337ab7; border-color: #337ab7;" type="submit" onclick="submit_report();" class="btn btn-info">
-							Soumettre
+							Submit
 						</button>
 					</div>
 				</div>
 			</div>
 			<div id="search_page" style="display: none;" class="row">
 				<div class="row text-center">
-					<h2>Info de recherche dans la base de données</h2>
+					<h2>Database search info</h2>
 				</div>
 				<div>
 					<label for="target_ident_search" class="col-md-2">
@@ -234,16 +234,16 @@
 					</label>
 					<div class="col-md-9">
 						<select style="color: black;" name="type_search" id="type_search" class="form-control">
-							<option value="none">Sélectionnez Options</option>
-							<option value="pers">Personne</option>
-							<option value="veh">Véhicule</option>
+							<option value="none">Select Options</option>
+							<option value="pers">No One</option>
+							<option value="veh">Vehicle</option>
 						</select>
 					</div>            
 				</div>
 				<div class="row">
 					<div class="col-md-12" style="text-align: center; margin-top: 14px;">
 						<button style="background-color: #337ab7; border-color: #337ab7;" type="submit" onclick="search_info();" class="btn btn-info">
-							Rechercher
+							Search
 						</button>
 					</div>
 				</div>
@@ -252,7 +252,7 @@
                 <div class="col-lg-12">
                     <div class="panel panel-primary">
                         <div class="panel-heading">
-                            <h3 class="panel-title"><i class="fa fa-bar-chart-o"></i> Recherche de joueurs - Résultats </h3>
+                            <h3 class="panel-title"><i class="fa fa-bar-chart-o"></i> Player Search - Results </h3>
                         </div>
                         <div class="panel-body">
 							<div id="shieldui-grid1" role="grid" aria-readonly="true" class="sui-grid sui-grid-core">
@@ -268,12 +268,12 @@
 										</colgroup>
 										<thead>
 											<tr role="row" class="sui-columnheader">
-												<th class="sui-headercell"><a class="sui-link sui-unselectable">Nom</a></th>
-												<th class="sui-headercell"><a id="suspect_title" class="sui-link sui-unselectable">Propriétés</a></th>
-												<th class="sui-headercell"><a class="sui-link sui-unselectable">Amendes impayées</a></th>
+												<th class="sui-headercell"><a class="sui-link sui-unselectable">Last name</a></th>
+												<th class="sui-headercell"><a id="suspect_title" class="sui-link sui-unselectable">Properties</a></th>
+												<th class="sui-headercell"><a class="sui-link sui-unselectable">Unpaid Fines</a></th>
 												<th class="sui-headercell"><a class="sui-link sui-unselectable">Licences</a></th>
-												<th role="columnheader" class="sui-headercell"><a class="sui-link sui-unselectable">Métier</a></th>
-												<th role="columnheader" class="sui-headercell"><a class="sui-link sui-unselectable">Avertissements</a></th>
+												<th role="columnheader" class="sui-headercell"><a class="sui-link sui-unselectable">Job</a></th>
+												<th role="columnheader" class="sui-headercell"><a class="sui-link sui-unselectable">Warnings</a></th>
 											</tr>
 										</thead>
 										<tbody class="sui-hide">
@@ -312,7 +312,7 @@
                 <div class="col-lg-12">
                     <div class="panel panel-primary">
                         <div class="panel-heading">
-                            <h3 class="panel-title"><i class="fa fa-bar-chart-o"></i> Recherche de véhicule - Résultats </h3>
+                            <h3 class="panel-title"><i class="fa fa-bar-chart-o"></i>Vehicle Search - Results </h3>
                         </div>
                         <div class="panel-body">
 							<div id="shieldui-grid1" role="grid" aria-readonly="true" class="sui-grid sui-grid-core">
@@ -325,9 +325,9 @@
 										</colgroup>
 										<thead>
 											<tr role="row" class="sui-columnheader">
-												<th class="sui-headercell"><a class="sui-link sui-unselectable">Nom du véhicule</a></th>
-												<th class="sui-headercell"><a id="suspect_title" class="sui-link sui-unselectable">Plaque d'immatriculation</a></th>
-												<th class="sui-headercell"><a class="sui-link sui-unselectable">Propriétaire</a></th>
+												<th class="sui-headercell"><a class="sui-link sui-unselectable">Vehicle Name</a></th>
+												<th class="sui-headercell"><a id="suspect_title" class="sui-link sui-unselectable">Number Plate</a></th>
+												<th class="sui-headercell"><a class="sui-link sui-unselectable">Owner</a></th>
 											</tr>
 										</thead>
 										<tbody class="sui-hide">

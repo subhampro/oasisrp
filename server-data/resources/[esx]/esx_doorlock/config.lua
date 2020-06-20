@@ -154,15 +154,15 @@ Config.DoorList = {
 		
 	},
 
-	{
-		objName = 'v_ilev_gtdoor',
-		objYaw = 0.0,
-		objCoords  = vector3(472.15, -996.56, 24.91),
-		textCoords = vector3(472.15, -996.56, 25.41),
-		authorizedJobs = { 'police'},
-		locked = true,
+	-- {
+	-- 	objName = 'v_ilev_gtdoor',
+	-- 	objYaw = 0.0,
+	-- 	objCoords  = vector3(472.15, -996.56, 24.91),
+	-- 	textCoords = vector3(472.15, -996.56, 25.41),
+	-- 	authorizedJobs = { 'police'},
+	-- 	locked = true,
 		
-	},
+	-- },
 
 	{
 		objName = 'v_ilev_gtdoor',
