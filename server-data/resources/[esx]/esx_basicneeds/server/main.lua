@@ -25,18 +25,18 @@ end)
 
 
 -- ESX.RegisterUsableItem('beer', function(source)
--- 	local xPlayer = ESX.GetPlayerFromId(source)
--- 	xPlayer.removeInventoryItem('beer', 1)
+	-- local xPlayer = ESX.GetPlayerFromId(source)
+	-- xPlayer.removeInventoryItem('beer', 1)
 -- 	TriggerClientEvent('esx_status:add', source, 'thirst', 20000)
 -- 	TriggerClientEvent('esx_basicneeds:onDrink', source)
--- 	xPlayer.showNotification('You just drunk one bottle of Bear !')
+	-- xPlayer.showNotification('You just drunk one bottle of Bear !')
 -- end)
 
 
 -- ESX.RegisterUsableItem('cigarette', function(source)
---     local xPlayer = ESX.GetPlayerFromId(source)
---     xPlayer.removeInventoryItem('cigarette', 1)
---     xPlayer.showNotification('That was cool which will reduce Stres.. right?')
+    -- local xPlayer = ESX.GetPlayerFromId(source)
+    -- xPlayer.removeInventoryItem('cigarette', 1)
+    -- xPlayer.showNotification('That was cool which will reduce Stres.. right?')
 -- end)
 
 -- ESX.RegisterUsableItem('joint', function(source)
