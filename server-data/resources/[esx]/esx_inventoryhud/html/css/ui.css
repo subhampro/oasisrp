@@ -1,65 +1,81 @@
-@import url('https://fonts.googleapis.com/css?family=Lato&display=swap');
-
 * {
     padding: 0;
     margin: 0;
-    font-family: 'Lato', sans-serif;
-    text-transform: uppercase;
+    font-family: 'Signika', sans-serif;
+    /*text-transform: uppercase;*/
     color: white;
     text-shadow:
         -0.5px -0.5px 0 #000,
         0.5px -0.5px 0 #000,
         -0.5px 0.5px 0 #000,
         0.5px 0.5px 0 #000;
+
 }
 
 .ui {
     position: relative;
     left: 0;
     top: 0;
-    width: 100vw;
+    width: 100vw;    
     height: 100vh;
+    background-color: rgba(0, 0, 0, 0);
     display: none;
     z-index: 0;
 }
 
 .inventory {
     position: absolute;
-    left: 50%;
+    left: 25%;
     top: 50%;
     transform: translate(-50%, -50%);
-    width: 1317.5px;
-    height: 510px;
+    width: 620px;
+    height: 600px;
+    box-shadow: 1px 1px 10px rgba(58, 58, 58, 0.3);
+    background-color: rgba(235, 235, 235, 0.01);
 }
 
 #playerInventory {
-    width: 531.25px;
-    height: 510px;
+    width: 620px;
+    height: 600px;
     float: left;
-    overflow-y: scroll
+    overflow-y: scroll;
+}
+
+#playerInventoryFastItems {
+    width: 650px;
+    height: 50px;
+	position : absolute;
+	bottom : 90.4%;
+	left: 0%;
+	z-index: 100;
+	float:left;
 }
 
 #controls {
-    width: 255px;
-    height: 510px;
-    float: left;
-    position: relative;
-    background-color: rgba(64, 64, 64, 0.1);
-    left: 0;
-    top: 0;
+    width: 100px;
+    height: 100px;
+    float: center;
+    position: absolute;
+    left: 110%;
+    top: 30%;
 }
 
 #otherInventory {
-    width: 531.25px;
-    height: 510px;
+    width: 620px;
+    height: 300px;
     float: left;
-    overflow-y: scroll
+    overflow-y: scroll;
+    position: absolute;
+	top: 0%;
+    left: 138%;
+    box-shadow: 1px 1px 10px rgba(58, 58, 58, 0.3);
+    background-color: rgba(235, 235, 235, 0.01);
 }
 
 #count {
     border: none;
     outline: none;
-    font-size: 18px;
+    font-size: 16px;
 }
 
 input::-webkit-outer-spin-button,
@@ -74,24 +90,45 @@ input[type=number] {
 
 .slot {
     float: left;
-    width: 99.45px;
-    height: 110px;
-    background-color: rgba(255, 255, 255, 0.0);
-    margin: 4px;
-	box-shadow: 0px 0px #000000;
+    width: 117px;
+    height: 117px;
+    bottom : -21.4%;
+    background-color: rgba(0, 0, 0, 0.6);
+    margin: 2px;
     position: relative;
-	border-radius: 10px;
-    border: none;
+}
+
+.slotfix {
+    float: left;
+    width: 117px;
+    height: 117px;
+    background-color: rgba(0, 0, 0, 0.6);
+    margin: 2px;
+    position: relative;
 }
 
 .slot:hover {
+    opacity: 0.8;
+    background-color: rgba(110, 110, 110, 0.5);
+}
+
+.slotFast {
+    float: left;
+    width: 117px;
+    height: 117px;
+    background-color: rgba(0, 0, 0, 0.6);
+    margin: 2px;
+    position: relative;
+}
+
+.slotFast:hover {
     opacity: 0.8;
 }
 
 .item,
 .item-other {
-    width: 99.45px;
-    height: 85px;
+    width: 117px;
+    height: 117px;
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center center;
@@ -103,11 +140,12 @@ input[type=number] {
     text-align: center;
     padding-top: 5px;
     padding-bottom: 5px;
-    width: 99.45px;
+    width: 117px;
     min-height: 20px;
     z-index: 500;
     font-size: 12px;
-    background-color: rgba(255, 255, 255, 0.0);
+    background-color: rgba(110, 110, 110, 0.5);
+    border: 1px solid rgba(255, 255, 255, 0.3);
 }
 
 .ui-draggable-dragging .item-name,
@@ -119,9 +157,20 @@ input[type=number] {
     position: absolute;
     top: 0;
     text-align: right;
-    width: 96.9px;
-    height: 17px;
+    width: 114px;
+    height: 20px;
     z-index: 500;
+}
+
+.keybind {
+    position: absolute;
+    top: 0;
+    text-align: left;
+    width: 20px;
+    height: 20px;
+    z-index: 500;
+	background-color: rgba(0, 0, 0, 0.01);
+	text-align: center;
 }
 
 .ammoIcon {
@@ -130,45 +179,104 @@ input[type=number] {
 }
 
 .info-div {
-    text-align: center;
+    text-align: left;
     padding: 5px;
-    background-color: rgba(17, 5, 17, 0.6);
-    width: 68%;
+    background-color: rgba(110, 110, 110, 0.5);
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    width: 50%;
     position: absolute;
-    left: 50%;
-    top: 15%;
+    left: 270%;
+    top: -215%;
+    width: 174px;
+    transform: translate(-50%, -50%);
+}
+
+.info-div2 {
+    text-align: left;
+    padding: 5px;
+    background-color: rgba(110, 110, 110, 0.5);
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    width: 174px;
+    position: absolute;
+    left: 15.5%;
+    top: -6%;
     transform: translate(-50%, -50%);
 }
 
 .controls-div {
-    position: absolute;
-    left: 50%;
+    position: relative;
+    left: 49%;
     top: 50%;
     transform: translate(-50%, -50%);
+    float: left;
 }
 
 .control {
     width: 150px;
-    height: 40px;
-    background-color: rgb(13, 13, 13);
-    margin: 10px;
+    height: 47px;
+    background-color: rgba(110, 110, 110, 0.5);
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    margin: 5px;
     text-align: center;
     vertical-align: middle;
-    line-height: 40px;
+    line-height: 41.5px;
+	float: left;
 }
 
 .control.disabled {
-    background-color: rgb(204, 51, 0);
+    background-color: rgba(0, 0, 0, 0.1);
 }
 
 .hoverControl {
-    background-color: rgb(0, 204, 0);
+    background-color: rgba(235, 235, 235, 0.1);
+}
+
+.used-item-slot {
+    position: absolute;
+    right: 50px;
+    bottom: 50%;
+    height: 125px;
+    width: 110px;
+    background-color: rgba(124, 124, 124, 0.356);
+    border-style: solid;
+    border-color: rgba(255,255,255,0.2);
+    border-width: 1px 1px 1px 1px;
+}
+
+#used-item-image {
+    height: 125px;
+    width: 110px;
+    background-image: url(img/used-item.png);
+    background-repeat: no-repeat;
+    background-size: 80%;
+    background-position-x: 0;
+}
+
+.added-item-slot {
+    position: absolute;
+    right: 50px;
+    bottom: 50%;
+    height: 125px;
+    width: 110px;
+    background-color: rgba(124, 124, 124, 0.356);
+    border-style: solid;
+    border-color: rgba(255,255,255,0.2);
+    border-width: 1px 1px 1px 1px;
+}
+
+#added-item-image {
+    height: 125px;
+    width: 110px;
+    background-image: url(img/added-item.png);
+    background-repeat: no-repeat;
+    background-size: 80%;
+    background-position-x: 0;
 }
 
 .item-name-bg {
     width: 100%;
-    width: 99.45px;
-    height: 17px;
+    width: 117px;
+    height: 20px;
     position: absolute;
     bottom: 0;
 }
@@ -182,13 +290,14 @@ input[type=number] {
 #playerInventory::-webkit-scrollbar,
 #otherInventory::-webkit-scrollbar {
     width: 10px;
-    background-color: rgba(255, 255, 255, 0.0);
+    background-color: rgba(182, 0, 0, 0.4);
+    border: 1px solid rgba(0, 0, 0, 0.1);
 }
 
 #playerInventory::-webkit-scrollbar-thumb,
 #otherInventory::-webkit-scrollbar-thumb {
-    background-color: rgba(255, 255, 255, 0.0);
-    border: 2px solid rgba(17, 5, 17, 1, 0.0);
+    background-color: rgba(182, 0, 0, 0.25);
+    border: 1px solid rgba(0, 0, 0, 0.1);
 }
 
 .nearbyPlayerButton {
@@ -197,8 +306,8 @@ input[type=number] {
     display: block;
     text-decoration: none;
     padding: 2px;
-    color: rgba(255, 255, 255, 0.85);
-    background-color: rgba(63, 57, 83, 0.226);
+    background-color: rgba(110, 110, 110, 0.5);
+    border: 1px solid rgba(255, 255, 255, 0.3);
     text-shadow: none;
     font-size: 14px !important;
     outline: none;
@@ -209,7 +318,7 @@ input[type=number] {
 }
 
 .nearbyPlayerButton:hover {
-    background-color: rgba(34, 29, 46, 0.8);
+    background-color: rgba(235, 235, 235, 0.1);
 }
 
 #noSecondInventoryMessage {
@@ -229,7 +338,7 @@ input[type=number] {
     }
 
     #controls {
-        width: 200px;
+        width: 1000px;
     }
 
     #otherInventory {
@@ -251,7 +360,7 @@ input[type=number] {
     }
 
     #controls {
-        width: 150px;
+        width: 1000px;
     }
 
     #otherInventory {

@@ -1,35 +1,21 @@
 ESX = nil
 local arrayWeight = Config.localWeight
-local VehicleList = {}
-local VehicleInventory = {}
+local VehicleList, VehicleInventory = {}, {}
 
-TriggerEvent(
-  "esx:getSharedObject",
-  function(obj)
-    ESX = obj
-  end
-)
+TriggerEvent('esx:getSharedObject', function(obj) ESX = obj end)
 
-AddEventHandler(
-  "onMySQLReady",
-  function()
+AddEventHandler("onMySQLReady", function()
     MySQL.Async.execute("DELETE FROM `glovebox_inventory` WHERE `owned` = 0", {})
-  end
-)
+end)
 
 RegisterServerEvent("esx_glovebox_inventory:getOwnedVehicle")
-AddEventHandler(
-  "esx_glovebox_inventory:getOwnedVehicle",
-  function()
+AddEventHandler("esx_glovebox_inventory:getOwnedVehicle", function()
     local vehicules = {}
     local _source = source
     local xPlayer = ESX.GetPlayerFromId(_source)
-    MySQL.Async.fetchAll(
-      "SELECT * FROM owned_vehicles WHERE owner = @owner",
-      {
+    MySQL.Async.fetchAll("SELECT * FROM owned_vehicles WHERE owner = @owner", {
         ["@owner"] = xPlayer.identifier
-      },
-      function(result)
+      }, function(result)
         if result ~= nil and #result > 0 then
           for _, v in pairs(result) do
             local vehicle = json.decode(v.vehicle)
@@ -37,10 +23,8 @@ AddEventHandler(
           end
         end
         TriggerClientEvent("esx_glovebox_inventory:setOwnedVehicle", _source, vehicules)
-      end
-    )
-  end
-)
+      end)
+end)
 
 function getItemWeight(item)
   local weight = 0
@@ -73,8 +57,7 @@ end
 
 function getTotalInventoryWeight(plate)
   local total
-  TriggerEvent(
-    "esx_glovebox:getSharedDataStore",
+  TriggerEvent("esx_glovebox:getSharedDataStore",
     plate,
     function(store)
       local W_weapons = getInventoryWeight(store.get("weapons") or {})
@@ -85,18 +68,12 @@ function getTotalInventoryWeight(plate)
         W_blackMoney = blackAccount[1].amount / 10
       end
       total = W_weapons + W_coffres + W_blackMoney
-    end
-  )
+    end)
   return total
 end
 
-ESX.RegisterServerCallback(
-  "esx_glovebox:getInventoryV",
-  function(source, cb, plate)
-    TriggerEvent(
-      "esx_glovebox:getSharedDataStore",
-      plate,
-      function(store)
+ESX.RegisterServerCallback("esx_glovebox:getInventoryV", function(source, cb, plate)
+    TriggerEvent("esx_glovebox:getSharedDataStore", plate, function(store)
         local blackMoney = 0
         local items = {}
         local weapons = {}
@@ -119,23 +96,18 @@ ESX.RegisterServerCallback(
             items = items,
             weapons = weapons,
             weight = weight
-          }
-        )
-      end
-    )
-  end
-)
+          })
+      end)
+end)
 
 RegisterServerEvent("esx_glovebox:getItem")
-AddEventHandler(
-  "esx_glovebox:getItem",
-  function(plate, type, item, count, max, owned)
+AddEventHandler("esx_glovebox:getItem", function(plate, type, item, count, max, owned)
     local _source = source
     local xPlayer = ESX.GetPlayerFromId(_source)
 
     if type == "item_standard" then
       local targetItem = xPlayer.getInventoryItem(item)
-      if targetItem.limit == nil or ((targetItem.count + count) <= targetItem.limit) then
+      if targetItem.limit == -1 or xPlayer.canCarryItem then
         TriggerEvent(
           "esx_glovebox:getSharedDataStore",
           plate,
@@ -153,17 +125,7 @@ AddEventHandler(
 
                   break
                 else
-                  TriggerClientEvent(
-                    "pNotify:SendNotification",
-                    _source,
-                    {
-                      text = _U("invalid_quantity"),
-                      type = "error",
-                      queue = "glovebox",
-                      timeout = 3000,
-                      layout = "bottomCenter"
-                    }
-                  )
+                  TriggerClientEvent('mythic_notify:client:SendAlert', source, { type = 'error', text = _U("invalid_quantity") } )
                 end
               end
             end
@@ -190,28 +152,14 @@ AddEventHandler(
             text = _U("glovebox_info", plate, (weight / 1000), (max / 1000))
             data = {plate = plate, max = max, myVeh = owned, text = text}
             TriggerClientEvent("esx_inventoryhud:refreshGloveboxInventory", _source, data, blackMoney, items, weapons)
-          end
-        )
+          end)
       else
-        TriggerClientEvent(
-          "pNotify:SendNotification",
-          _source,
-          {
-            text = _U("player_inv_no_space"),
-            type = "error",
-            queue = "glovebox",
-            timeout = 3000,
-            layout = "bottomCenter"
-          }
-        )
+        TriggerClientEvent('mythic_notify:client:SendAlert', source, { type = 'error', text = _U("player_inv_no_space") } )
       end
     end
 
     if type == "item_account" then
-      TriggerEvent(
-        "esx_glovebox:getSharedDataStore",
-        plate,
-        function(store)
+      TriggerEvent("esx_glovebox:getSharedDataStore", plate, function(store)
           local blackMoney = store.get("black_money")
           if (blackMoney[1].amount >= count and count > 0) then
             blackMoney[1].amount = blackMoney[1].amount - count
@@ -239,27 +187,13 @@ AddEventHandler(
             data = {plate = plate, max = max, myVeh = owned, text = text}
             TriggerClientEvent("esx_inventoryhud:refreshGloveboxInventory", _source, data, blackMoney, items, weapons)
           else
-            TriggerClientEvent(
-              "pNotify:SendNotification",
-              _source,
-              {
-                text = _U("invalid_amount"),
-                type = "error",
-                queue = "glovebox",
-                timeout = 3000,
-                layout = "bottomCenter"
-              }
-            )
+            TriggerClientEvent('mythic_notify:client:SendAlert', source, { type = 'error', text = _U("invalid_amount") } )
           end
-        end
-      )
+        end)
     end
 
     if type == "item_weapon" then
-      TriggerEvent(
-        "esx_glovebox:getSharedDataStore",
-        plate,
-        function(store)
+      TriggerEvent("esx_glovebox:getSharedDataStore", plate, function(store)
           local storeWeapons = store.get("weapons")
 
           if storeWeapons == nil then
@@ -304,16 +238,12 @@ AddEventHandler(
           text = _U("glovebox_info", plate, (weight / 1000), (max / 1000))
           data = {plate = plate, max = max, myVeh = owned, text = text}
           TriggerClientEvent("esx_inventoryhud:refreshGloveboxInventory", _source, data, blackMoney, items, weapons)
-        end
-      )
+        end)
     end
-  end
-)
+end)
 
 RegisterServerEvent("esx_glovebox:putItem")
-AddEventHandler(
-  "esx_glovebox:putItem",
-  function(plate, type, item, count, max, owned, label)
+AddEventHandler("esx_glovebox:putItem", function(plate, type, item, count, max, owned, label)
     local _source = source
     local xPlayer = ESX.GetPlayerFromId(_source)
     local xPlayerOwner = ESX.GetPlayerFromIdentifier(owner)
@@ -336,53 +266,23 @@ AddEventHandler(
               end
             end
             if not found then
-              table.insert(
-                coffres,
-                {
-                  name = item,
-                  count = count
-                }
-              )
+              table.insert(coffres, {name = item, count = count})
             end
             if (getTotalInventoryWeight(plate) + (getItemWeight(item) * count)) > max then
-              TriggerClientEvent(
-                "pNotify:SendNotification",
-                _source,
-                {
-                  text = _U("insufficient_space"),
-                  type = "error",
-                  queue = "glovebox",
-                  timeout = 3000,
-                  layout = "bottomCenter"
-                }
-              )
+              TriggerClientEvent('mythic_notify:client:SendAlert', source, { type = 'error', text = _U("insufficient_space") } )
             else
               -- Checks passed, storing the item.
               store.set("coffres", coffres)
               xPlayer.removeInventoryItem(item, count)
 
-              MySQL.Async.execute(
-                "UPDATE glovebox_inventory SET owned = @owned WHERE plate = @plate",
-                {
+              MySQL.Async.execute("UPDATE glovebox_inventory SET owned = @owned WHERE plate = @plate", {
                   ["@plate"] = plate,
                   ["@owned"] = owned
-                }
-              )
+              })
             end
-          end
-        )
+          end)
       else
-        TriggerClientEvent(
-          "pNotify:SendNotification",
-          _source,
-          {
-            text = _U("invalid_quantity"),
-            type = "error",
-            queue = "glovebox",
-            timeout = 3000,
-            layout = "bottomCenter"
-          }
-        )
+        TriggerClientEvent('mythic_notify:client:SendAlert', source, { type = 'error', text = _U("invalid_quantity") } )
       end
     end
 
@@ -390,10 +290,7 @@ AddEventHandler(
       local playerAccountMoney = xPlayer.getAccount(item).money
 
       if (playerAccountMoney >= count and count > 0) then
-        TriggerEvent(
-          "esx_glovebox:getSharedDataStore",
-          plate,
-          function(store)
+        TriggerEvent("esx_glovebox:getSharedDataStore", plate, function(store)
             local blackMoney = (store.get("black_money") or nil)
             if blackMoney ~= nil then
               blackMoney[1].amount = blackMoney[1].amount + count
@@ -403,52 +300,25 @@ AddEventHandler(
             end
 
             if (getTotalInventoryWeight(plate) + blackMoney[1].amount / 10) > max then
-              TriggerClientEvent(
-                "pNotify:SendNotification",
-                _source,
-                {
-                  text = _U("insufficient_space"),
-                  type = "error",
-                  queue = "glovebox",
-                  timeout = 3000,
-                  layout = "bottomCenter"
-                }
-              )
+              TriggerClientEvent('mythic_notify:client:SendAlert', source, { type = 'error', text = _U("insufficient_space") } )
             else
               -- Checks passed. Storing the item.
               xPlayer.removeAccountMoney(item, count)
               store.set("black_money", blackMoney)
 
-              MySQL.Async.execute(
-                "UPDATE glovebox_inventory SET owned = @owned WHERE plate = @plate",
-                {
+              MySQL.Async.execute("UPDATE glovebox_inventory SET owned = @owned WHERE plate = @plate", {
                   ["@plate"] = plate,
                   ["@owned"] = owned
-                }
-              )
+                })
             end
-          end
-        )
+          end)
       else
-        TriggerClientEvent(
-          "pNotify:SendNotification",
-          _source,
-          {
-            text = _U("invalid_amount"),
-            type = "error",
-            queue = "glovebox",
-            timeout = 3000,
-            layout = "bottomCenter"
-          }
-        )
+        TriggerClientEvent('mythic_notify:client:SendAlert', source, { type = 'error', text = _U("invalid_amount") } )
       end
     end
 
     if type == "item_weapon" then
-      TriggerEvent(
-        "esx_glovebox:getSharedDataStore",
-        plate,
-        function(store)
+      TriggerEvent("esx_glovebox:getSharedDataStore", plate, function(store)
           local storeWeapons = store.get("weapons")
 
           if storeWeapons == nil then
@@ -461,40 +331,22 @@ AddEventHandler(
               name = item,
               label = label,
               ammo = count
-            }
-          )
+            })
           if (getTotalInventoryWeight(plate) + (getItemWeight(item))) > max then
-            TriggerClientEvent(
-              "pNotify:SendNotification",
-              _source,
-              {
-                text = _U("invalid_amount"),
-                type = "error",
-                queue = "glovebox",
-                timeout = 3000,
-                layout = "bottomCenter"
-              }
-            )
+            TriggerClientEvent('mythic_notify:client:SendAlert', source, { type = 'error', text = _U("insufficient_space") } )
           else
             store.set("weapons", storeWeapons)
             xPlayer.removeWeapon(item)
 
-            MySQL.Async.execute(
-              "UPDATE glovebox_inventory SET owned = @owned WHERE plate = @plate",
-              {
+            MySQL.Async.execute("UPDATE glovebox_inventory SET owned = @owned WHERE plate = @plate", {
                 ["@plate"] = plate,
                 ["@owned"] = owned
-              }
-            )
+            })
           end
-        end
-      )
+        end)
     end
 
-    TriggerEvent(
-      "esx_glovebox:getSharedDataStore",
-      plate,
-      function(store)
+    TriggerEvent("esx_glovebox:getSharedDataStore", plate, function(store)
         local blackMoney = 0
         local items = {}
         local weapons = {}
@@ -515,26 +367,16 @@ AddEventHandler(
         text = _U("glovebox_info", plate, (weight / 1000), (max / 1000))
         data = {plate = plate, max = max, myVeh = owned, text = text}
         TriggerClientEvent("esx_inventoryhud:refreshGloveboxInventory", _source, data, blackMoney, items, weapons)
-      end
-    )
-  end
-)
+      end)
+end)
 
-ESX.RegisterServerCallback(
-  "esx_glovebox:getPlayerInventory",
-  function(source, cb)
+ESX.RegisterServerCallback("esx_glovebox:getPlayerInventory", function(source, cb)
     local xPlayer = ESX.GetPlayerFromId(source)
     local blackMoney = xPlayer.getAccount("black_money").money
     local items = xPlayer.inventory
 
-    cb(
-      {
-        blackMoney = blackMoney,
-        items = items
-      }
-    )
-  end
-)
+    cb({blackMoney = blackMoney, items = items})
+  end)
 
 function all_trim(s)
   if s then

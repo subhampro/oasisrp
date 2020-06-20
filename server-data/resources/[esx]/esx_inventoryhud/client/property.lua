@@ -1,19 +1,19 @@
 RegisterNetEvent("esx_inventoryhud:openPropertyInventory")
-AddEventHandler(
-    "esx_inventoryhud:openPropertyInventory",
-    function(data)
-        setPropertyInventoryData(data)
-        openPropertyInventory()
-    end
-)
+AddEventHandler("esx_inventoryhud:openPropertyInventory", function(data)
+	TriggerScreenblurFadeIn(0)
+	setPropertyInventoryData(data)
+	openPropertyInventory()
+	if not IsEntityPlayingAnim(playerPed, 'mini@repair', 'fixing_a_player', 3) then
+		ESX.Streaming.RequestAnimDict('mini@repair', function()
+		TaskPlayAnim(playerPed, 'mini@repair', 'fixing_a_player', 8.0, -8, -1, 49, 0, 0, 0, 0)
+		end)
+	end
+end)
 
 function refreshPropertyInventory()
-    ESX.TriggerServerCallback(
-        "esx_property:getPropertyInventory",
-        function(inventory)
-            setPropertyInventoryData(inventory)
-        end,
-        ESX.GetPlayerData().identifier
+    ESX.TriggerServerCallback("esx_property:getPropertyInventory", function(inventory)
+		setPropertyInventoryData(inventory)
+        end, ESX.GetPlayerData().identifier
     )
 end
 
@@ -32,7 +32,7 @@ function setPropertyInventoryData(data)
             name = "black_money",
             usable = false,
             rare = false,
-            weight = -1,
+            limit = -1,
             canRemove = false
         }
         table.insert(items, accountData)
@@ -45,7 +45,7 @@ function setPropertyInventoryData(data)
             item.type = "item_standard"
             item.usable = false
             item.rare = false
-            item.weight = -1
+            item.limit = -1
             item.canRemove = false
 
             table.insert(items, item)
@@ -61,81 +61,64 @@ function setPropertyInventoryData(data)
                 {
                     label = ESX.GetWeaponLabel(weapon.name),
                     count = weapon.ammo,
-                    weight = -1,
+                    limit = -1,
                     type = "item_weapon",
                     name = weapon.name,
                     usable = false,
                     rare = false,
                     canRemove = false
-                }
-            )
+              })
         end
     end
 
-    SendNUIMessage(
-        {
-            action = "setSecondInventoryItems",
-            itemList = items
-        }
-    )
+    SendNUIMessage({action = "setSecondInventoryItems", itemList = items})
 end
 
 function openPropertyInventory()
     loadPlayerInventory()
     isInInventory = true
 
-    SendNUIMessage(
-        {
-            action = "display",
-            type = "property"
-        }
-    )
+    SendNUIMessage({action = "display", type = "property"})
 
     SetNuiFocus(true, true)
 end
 
-RegisterNUICallback(
-    "PutIntoProperty",
-    function(data, cb)
-        if IsPedSittingInAnyVehicle(playerPed) then
-            return
-        end
+RegisterNUICallback("PutIntoProperty", function(data, cb)
+	if IsPedSittingInAnyVehicle(playerPed) then
+		return
+	end
 
-        if type(data.number) == "number" and math.floor(data.number) == data.number then
-            local count = tonumber(data.number)
+	if type(data.number) == "number" and math.floor(data.number) == data.number then
+		local count = tonumber(data.number)
 
-            if data.item.type == "item_weapon" then
-                count = GetAmmoInPedWeapon(PlayerPedId(), GetHashKey(data.item.name))
-            end
+		if data.item.type == "item_weapon" then
+			count = GetAmmoInPedWeapon(PlayerPedId(), GetHashKey(data.item.name))
+		end
 
-            TriggerServerEvent("esx_property:putItem", ESX.GetPlayerData().identifier, data.item.type, data.item.name, count)
-        end
+		TriggerServerEvent("esx_property:putItem", ESX.GetPlayerData().identifier, data.item.type, data.item.name, count)
+    end
 
-        Wait(150)
+        Wait(250)
         refreshPropertyInventory()
-        Wait(150)
+        Wait(250)
         loadPlayerInventory()
 
         cb("ok")
-    end
-)
+end)
 
-RegisterNUICallback(
-    "TakeFromProperty",
-    function(data, cb)
-        if IsPedSittingInAnyVehicle(playerPed) then
-            return
-        end
+RegisterNUICallback("TakeFromProperty", function(data, cb)
+	if IsPedSittingInAnyVehicle(playerPed) then
+		return
+	end
 
-        if type(data.number) == "number" and math.floor(data.number) == data.number then
-            TriggerServerEvent("esx_property:getItem", ESX.GetPlayerData().identifier, data.item.type, data.item.name, tonumber(data.number))
-        end
+	if type(data.number) == "number" and math.floor(data.number) == data.number then
+		TriggerServerEvent("esx_property:getItem", ESX.GetPlayerData().identifier, data.item.type, data.item.name, tonumber(data.number))
+	end
 
-        Wait(150)
+        Wait(250)
         refreshPropertyInventory()
-        Wait(150)
+        Wait(250)
         loadPlayerInventory()
 
         cb("ok")
-    end
-)
+end)

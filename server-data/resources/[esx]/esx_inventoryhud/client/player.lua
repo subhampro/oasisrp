@@ -1,53 +1,37 @@
-local targetPlayer
-local targetPlayerName
+local targetPlayer, targetPlayerName
 
 Citizen.CreateThread(
     function()
-        TriggerEvent(
-            "chat:addSuggestion",
-            "/openinventory",
-            _U("openinv_help"),
-            {
-                {name = _U("openinv_id"), help = _U("openinv_help")}
-            }
-        )
-    end
-)
+        TriggerEvent("chat:addSuggestion", "/openinventory", _U("openinv_help"), {
+			{name = _U("openinv_id"), help = _U("openinv_help")}
+        })
+end)
 
-AddEventHandler(
-    "onResourceStop",
-    function(resource)
-        if resource == GetCurrentResourceName() then
-            TriggerEvent("chat:removeSuggestion", "/openinventory")
-        end
-    end
-)
+AddEventHandler("onResourceStop", function(resource)
+	if resource == GetCurrentResourceName() then
+		TriggerEvent("chat:removeSuggestion", "/openinventory")
+	end
+end)
 
 RegisterNetEvent("esx_inventoryhud:openPlayerInventory")
-AddEventHandler(
-    "esx_inventoryhud:openPlayerInventory",
-    function(target, playerName)
-        targetPlayer = target
-        targetPlayerName = playerName
-        setPlayerInventoryData()
-        openPlayerInventory()
-    end
-)
+AddEventHandler("esx_inventoryhud:openPlayerInventory", function(target, playerName)
+	targetPlayer = target
+	targetPlayerName = playerName
+	setPlayerInventoryData()
+	openPlayerInventory()
+end)
 
 function refreshPlayerInventory()
     setPlayerInventoryData()
 end
 
 function setPlayerInventoryData()
-    ESX.TriggerServerCallback(
-        "esx_inventoryhud:getPlayerInventory",
-        function(data)
+    ESX.TriggerServerCallback("esx_inventoryhud:getPlayerInventory", function(data)
             SendNUIMessage(
                 {
                     action = "setInfoText",
                     text = "<strong>" .. _U("player_inventory") .. "</strong><br>" .. targetPlayerName .. " (" .. targetPlayer .. ")"
-                }
-            )
+              })
 
             items = {}
             inventory = data.inventory
@@ -64,7 +48,7 @@ function setPlayerInventoryData()
                         count = money,
                         usable = false,
                         rare = false,
-                        weight = -1,
+                        limit = -1,
                         canRemove = true
                     }
 
@@ -85,7 +69,7 @@ function setPlayerInventoryData()
                                 name = accounts[key].name,
                                 usable = false,
                                 rare = false,
-                                weight = -1,
+                                limit = -1,
                                 canRemove = canDrop
                             }
                             table.insert(items, accountData)
@@ -109,33 +93,26 @@ function setPlayerInventoryData()
                 for key, value in pairs(weapons) do
                     local weaponHash = GetHashKey(weapons[key].name)
                     local playerPed = PlayerPedId()
-                    if HasPedGotWeapon(playerPed, weaponHash, false) and weapons[key].name ~= "WEAPON_UNARMED" then
+                    if weapons[key].name ~= "WEAPON_UNARMED" then
                         local ammo = GetAmmoInPedWeapon(playerPed, weaponHash)
                         table.insert(
                             items,
                             {
                                 label = weapons[key].label,
                                 count = ammo,
-                                weight = -1,
+                                limit = -1,
                                 type = "item_weapon",
                                 name = weapons[key].name,
                                 usable = false,
                                 rare = false,
                                 canRemove = true
-                            }
-                        )
+                            })
                     end
                 end
             end
 
-            SendNUIMessage(
-                {
-                    action = "setSecondInventoryItems",
-                    itemList = items
-                }
-            )
-        end,
-        targetPlayer
+            SendNUIMessage({action = "setSecondInventoryItems", itemList = items})
+        end, targetPlayer
     )
 end
 
@@ -143,62 +120,51 @@ function openPlayerInventory()
     loadPlayerInventory()
     isInInventory = true
 
-    SendNUIMessage(
-        {
-            action = "display",
-            type = "player"
-        }
-    )
+    SendNUIMessage({action = "display", type = "player"})
 
     SetNuiFocus(true, true)
 end
 
-RegisterNUICallback(
-    "PutIntoPlayer",
-    function(data, cb)
-        if IsPedSittingInAnyVehicle(playerPed) then
-            return
-        end
+RegisterNUICallback("PutIntoPlayer", function(data, cb)
+	if IsPedSittingInAnyVehicle(playerPed) then
+		return
+	end
 
-        if type(data.number) == "number" and math.floor(data.number) == data.number then
-            local count = tonumber(data.number)
+	if type(data.number) == "number" and math.floor(data.number) == data.number then
+		local count = tonumber(data.number)
 
-            if data.item.type == "item_weapon" then
-                count = GetAmmoInPedWeapon(PlayerPedId(), GetHashKey(data.item.name))
-            end
+	if data.item.type == "item_weapon" then
+		count = GetAmmoInPedWeapon(PlayerPedId(), GetHashKey(data.item.name))
+	end
 
-            TriggerServerEvent("esx_inventoryhud:tradePlayerItem", GetPlayerServerId(PlayerId()), targetPlayer, data.item.type, data.item.name, count)
-        end
+		TriggerServerEvent("esx_inventoryhud:tradePlayerItem", GetPlayerServerId(PlayerId()), targetPlayer, data.item.type, data.item.name, count)
+	end
 
         Wait(250)
         refreshPlayerInventory()
         loadPlayerInventory()
 
         cb("ok")
-    end
-)
+    end)
 
-RegisterNUICallback(
-    "TakeFromPlayer",
-    function(data, cb)
-        if IsPedSittingInAnyVehicle(playerPed) then
-            return
-        end
+RegisterNUICallback("TakeFromPlayer", function(data, cb)
+	if IsPedSittingInAnyVehicle(playerPed) then
+		return
+	end
 
-        if type(data.number) == "number" and math.floor(data.number) == data.number then
-            local count = tonumber(data.number)
+	if type(data.number) == "number" and math.floor(data.number) == data.number then
+		local count = tonumber(data.number)
 
-            if data.item.type == "item_weapon" then
-                count = GetAmmoInPedWeapon(PlayerPedId(), GetHashKey(data.item.name))
-            end
+		if data.item.type == "item_weapon" then
+			count = GetAmmoInPedWeapon(PlayerPedId(), GetHashKey(data.item.name))
+		end
 
-            TriggerServerEvent("esx_inventoryhud:tradePlayerItem", targetPlayer, GetPlayerServerId(PlayerId()), data.item.type, data.item.name, count)
-        end
+		TriggerServerEvent("esx_inventoryhud:tradePlayerItem", targetPlayer, GetPlayerServerId(PlayerId()), data.item.type, data.item.name, count)
+     end
 
         Wait(250)
         refreshPlayerInventory()
         loadPlayerInventory()
 
         cb("ok")
-    end
-)
+end)
