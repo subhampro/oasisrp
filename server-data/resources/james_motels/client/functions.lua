@@ -511,7 +511,7 @@ CreateBlip = function()
     local pinkCageBlip = AddBlipForCoord(Config.LandLord["position"])
 
 	SetBlipSprite(pinkCageBlip, 475)
-	SetBlipScale(pinkCageBlip, 0.9)
+	SetBlipScale(pinkCageBlip, 0.6)
 	SetBlipColour(pinkCageBlip, 25)
 	SetBlipAsShortRange(pinkCageBlip, true)
 
@@ -522,7 +522,7 @@ CreateBlip = function()
     local megaMallBlip = AddBlipForCoord(Config.MegaMall["entrance"]["pos"])
 
 	SetBlipSprite(megaMallBlip, 407)
-	SetBlipScale(megaMallBlip, 1.1)
+	SetBlipScale(megaMallBlip, 0.5)
 	SetBlipColour(megaMallBlip, 26)
 	SetBlipAsShortRange(megaMallBlip, true)
 

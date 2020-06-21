@@ -35,7 +35,7 @@ local blip = AddBlipForCoord(Config.SellFish.x, Config.SellFish.y, Config.SellFi
 
 			SetBlipSprite (blip, 356)
 			SetBlipDisplay(blip, 4)
-			SetBlipScale  (blip, 1.1)
+			SetBlipScale  (blip, 0.6)
 			SetBlipColour (blip, 17)
 			SetBlipAsShortRange(blip, true)
 			BeginTextCommandSetBlipName("STRING")
@@ -46,7 +46,7 @@ local blip2 = AddBlipForCoord(Config.SellTurtle.x, Config.SellTurtle.y, Config.S
 
 			SetBlipSprite (blip2, 68)
 			SetBlipDisplay(blip2, 4)
-			SetBlipScale  (blip2, 0.9)
+			SetBlipScale  (blip2, 0.6)
 			SetBlipColour (blip2, 49)
 			SetBlipAsShortRange(blip2, true)
 			BeginTextCommandSetBlipName("STRING")
@@ -57,7 +57,7 @@ local blip3 = AddBlipForCoord(Config.SellShark.x, Config.SellShark.y, Config.Sel
 
 			SetBlipSprite (blip3, 68)
 			SetBlipDisplay(blip3, 4)
-			SetBlipScale  (blip3, 0.9)
+			SetBlipScale  (blip3, 0.6)
 			SetBlipColour (blip3, 49)
 			SetBlipAsShortRange(blip3, true)
 			BeginTextCommandSetBlipName("STRING")
@@ -68,7 +68,7 @@ for _, info in pairs(Config.MarkerZones) do
 		info.blip = AddBlipForCoord(info.x, info.y, info.z)
 		SetBlipSprite(info.blip, 455)
 		SetBlipDisplay(info.blip, 4)
-		SetBlipScale(info.blip, 1.0)
+		SetBlipScale(info.blip, 0.7)
 		SetBlipColour(info.blip, 20)
 		SetBlipAsShortRange(info.blip, true)
 		BeginTextCommandSetBlipName("STRING")

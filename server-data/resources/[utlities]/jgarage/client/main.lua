@@ -64,7 +64,7 @@ Citizen.CreateThread(function()
 
 		SetBlipSprite(garageBlip, 357)
 		SetBlipDisplay(garageBlip, 4)
-		SetBlipScale (garageBlip, 0.8)
+		SetBlipScale (garageBlip, 0.6)
 		SetBlipColour(garageBlip, 67)
 		SetBlipAsShortRange(garageBlip, true)
 		BeginTextCommandSetBlipName("STRING")

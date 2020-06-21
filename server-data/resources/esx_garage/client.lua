@@ -264,9 +264,10 @@ end
 
 addBlip = function(coords, sprite, color, text)
     local blip = AddBlipForCoord(coords)
+    SetBlipSprite(blip, 357)
 	SetBlipSprite (blip, sprite)
 	SetBlipDisplay(blip, 4)
-	SetBlipScale  (blip, 1.0)
+	SetBlipScale  (blip, 0.6)
 	SetBlipColour (blip, color)
 	SetBlipAsShortRange(blip, true)
 	BeginTextCommandSetBlipName("STRING")

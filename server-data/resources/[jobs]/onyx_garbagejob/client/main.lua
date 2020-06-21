@@ -218,7 +218,7 @@ end
 function generateBlipsFromRoute(route)
     for k,v in next, route do
         local blip = AddBlipForCoord(v.x, v.y, 0)
-        SetBlipScale(blip, 0.75)
+        SetBlipScale(blip, 0.6)
         SetBlipSprite(blip, job_blip_settings.destination_blip.id)
         SetBlipColour(blip, job_blip_settings.destination_blip.color)
         setBlipName(blip,v.name)

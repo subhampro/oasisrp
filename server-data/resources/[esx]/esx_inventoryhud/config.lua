@@ -10,7 +10,7 @@ Config.OpenControl = 289 -- Key for opening inventory. Edit html/js/config.js to
 Config.OpenKey = 74 -- Key for opening trunk
 
 -- List of item names that will close ui when used
-Config.CloseUiItems = {"headbag", "fishingrod", "tunerlaptop", "binoculars", "gps", "joint", "cigarette", "cigar", "fixkit", "rollingpaper", "cocaine", "meth"}
+Config.CloseUiItems = {"fishbait", "coffe", "icetea", "hamburger", "phone", "bread", "water", "headbag","chips", "cocacola", "cupcake", "fishingrod", "tunerlaptop", "binoculars", "gps", "joint", "cigarette", "cigar", "fixkit", "rollingpaper", "cocaine", "meth", "beer", "lockpick", "advancedlockpick"}
 
 Config.ShopBlipID = 52
 Config.LiquorBlipID = 93
@@ -50,7 +50,18 @@ Config.Shops = {
         },
         Items = {
             {name = 'bread'},
-            {name = 'water'}
+            {name = 'water'},
+			{name = 'phone'},
+			{name = 'hamburger'},
+			{name = 'cupcake'},
+			{name = 'chips'},
+			{name = 'cocacola'},
+			{name = 'icetea'},
+			{name = 'coffe'},
+			{name = 'cigarette'},
+			{name = 'fishbait'},
+			{name = 'fishingrod'},
+			{name = 'turtlebait'}
      }},
 
     RobsLiquor = {
@@ -65,11 +76,15 @@ Config.Shops = {
         },
         Items = {
             {name = 'beer'},
-            {name = 'wine'},
-            {name = 'vodka'},
-            {name = 'tequila'},
-            {name = 'whisky'},
-            {name = 'grand_cru'}
+            {name = 'hamburger'},
+            {name = 'cupcake'},
+            {name = 'chips'},
+            {name = 'cocacola'},
+            {name = 'icetea'},
+			{name = 'sandwich'},
+			{name = 'coffe'},
+			{name = 'cigarette'},
+			{name = 'phone'}
     }},
 
     YouTool = {
@@ -77,21 +92,11 @@ Config.Shops = {
             {x = 2748.0, y = 3473.0, z = 55.68},
         },
         Items = {
-            {name = 'drill'},
-            {name = 'binocular'},
-            {name = 'fixkit'},
-            {name = 'gps'},
-            {name = 'lockpick'},
-            {name = 'scubagear'},
+            {name = 'c4_bank'},
             {name = 'blowtorch'},
-            {name = '1gbag'},
-            {name = '5gbag'},
-            {name = '50gbag'},
-            {name = '100gbag'},
-            {name = 'lowgradefert'},
-            {name = 'highgradefert'},
-            {name = 'plantpot'},
-            {name = 'drugscales'}
+            {name = 'raspberry'},
+            {name = 'lockpick'},
+            {name = 'advancedlockpick'}
     }},
 
     PrisonShop = {
@@ -102,9 +107,7 @@ Config.Shops = {
             {name = 'bread'},
             {name = 'water'},
             {name = 'cigarette'},
-            {name = 'lighter'},
-            {name = 'sandwich'},
-            {name = 'chips'}
+            {name = 'sandwich'}
     }},
 
     WeaponShop = {

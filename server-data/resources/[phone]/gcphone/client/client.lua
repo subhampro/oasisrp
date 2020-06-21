@@ -11,7 +11,7 @@ local KeyToucheCloseEvent = {
   { code = 176, event = 'Enter' },
   { code = 177, event = 'Backspace' },
 }
-local KeyOpenClose = 288 -- F1
+local KeyOpenClose = 288 -- F2
 local KeyTakeCall = 38 -- E
 local menuIsOpen = false
 local contacts = {}
@@ -46,7 +46,6 @@ end
   Ouverture du téphone lié a un item
   Un solution ESC basé sur la solution donnée par HalCroves
   https://forum.fivem.net/t/tutorial-for-gcphone-with-call-and-job-message-other/177904
---]]
 
 ESX = nil
 Citizen.CreateThread(function()
@@ -64,8 +63,8 @@ function hasPhone (cb)
 end
 function ShowNoPhoneWarning () 
   if (ESX == nil) then return end
-  ESX.ShowNotification("You Don't have ~r~Mobile~s~")
-end
+  ESX.ShowNotification("Vous n'avez pas de ~r~téléphone~s~")
+end --]] 
 
 
 --====================================================================================
@@ -282,12 +281,12 @@ AddEventHandler("gcPhone:receiveMessage", function(message)
   SendNUIMessage({event = 'newMessage', message = message})
   table.insert(messages, message)
   if message.owner == 0 then
-    local text = '~o~New message'
+    local text = '~o~Nouveau message'
     if ShowNumberNotification == true then
-      text = '~o~New message from ~y~'.. message.transmitter
+      text = '~o~Nouveau message du ~y~'.. message.transmitter
       for _,contact in pairs(contacts) do
         if contact.number == message.transmitter then
-          text = '~o~New message from ~g~'.. contact.display
+          text = '~o~Nouveau message de ~g~'.. contact.display
           break
         end
       end
@@ -754,7 +753,7 @@ RegisterNUICallback('takePhoto', function(data, cb)
         local resp = json.decode(data)
         DestroyMobilePhone()
         CellCamActivate(false, false)
-        cb(json.encode({ url = resp.files[1].url }))   
+        --cb(json.encode({ url = resp.files[1].url }))   
       end)
       takePhoto = false
 		end

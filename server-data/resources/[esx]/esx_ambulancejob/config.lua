@@ -35,7 +35,7 @@ Config.Hospitals = {
 		Blip = {
 			coords = vector3(306.32, -594.35, 43.27),
 			sprite = 61,
-			scale  = 1.0,
+			scale  = 0.6,
 			color  = 2
 		},
 

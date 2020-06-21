@@ -134,6 +134,6 @@ Config.Blip = {{
 	Pos 	= {-1176.26,-1705.9,4.56},
 	Sprite 	= 523, Color = 0,
 	Name 	= "Premium Car Dealership",
-	Scale 	= 0.8,
+	Scale 	= 0.6,
 	Display = 4,
 }}

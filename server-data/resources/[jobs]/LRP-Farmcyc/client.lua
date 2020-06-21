@@ -74,7 +74,7 @@ local menuOpen = false
 local blipPickup = AddBlipForCoord(Config.PickupBlip.x,Config.PickupBlip.y,Config.PickupBlip.z)
 			SetBlipSprite (blipPickup, 266)
 			SetBlipDisplay(blipPickup, 4)
-			SetBlipScale  (blipPickup, 1.1)
+			SetBlipScale  (blipPickup, 0.6)
 			SetBlipColour (blipPickup, 47)
 			SetBlipAsShortRange(blipPickup, true)
 			BeginTextCommandSetBlipName("STRING")
@@ -85,7 +85,7 @@ local blipProcess = AddBlipForCoord(Config.Processing.x, Config.Processing.y, Co
 
 			SetBlipSprite (blipProcess, 266)
 			SetBlipDisplay(blipProcess, 4)
-			SetBlipScale  (blipProcess, 1.1)
+			SetBlipScale  (blipProcess, 0.6)
 			SetBlipColour (blipProcess, 47)
 			SetBlipAsShortRange(blipProcess, true)
 			BeginTextCommandSetBlipName("STRING")
@@ -100,7 +100,7 @@ local blipcamarones = AddBlipForCoord(Config.camarones.x, Config.camarones.y, Co
 
 			SetBlipSprite (blipcamarones, 266)
 			SetBlipDisplay(blipcamarones, 4)
-			SetBlipScale  (blipcamarones, 1.1)
+			SetBlipScale  (blipcamarones, 0.6)
 			SetBlipColour (blipcamarones, 47)
 			SetBlipAsShortRange(blipcamarones, true)
 			BeginTextCommandSetBlipName("STRING")
@@ -338,7 +338,7 @@ Citizen.CreateThread(function()
 
 SetBlipSprite(Blipventacamaronesycangrejos, 266)
 SetBlipColour(Blipventacamaronesycangrejos, 47)
-SetBlipScale(Blipventacamaronesycangrejos, 1.5)
+SetBlipScale(Blipventacamaronesycangrejos, 0.6)
 AddTextComponentString(Config.Blipnombrecyc)
 EndTextCommandSetBlipName(Blipventacamaronesycangrejos)
 

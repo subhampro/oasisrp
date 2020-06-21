@@ -125,6 +125,7 @@ Citizen.CreateThread(function()
 	for k,v in pairs(Config.Zones) do
 		local blip = AddBlipForCoord(v)
 		SetBlipSprite(blip, 75)
+		SetBlipScale  (blip, 0.6)
 		SetBlipColour(blip, 1)
 		SetBlipAsShortRange(blip, true)
 

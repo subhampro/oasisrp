@@ -712,6 +712,7 @@ function addblipGC()
 	gcblip = AddBlipForCoord(-1332.7823486328,128.18229675293,56.032329559326)
 	SetBlipAsFriendly(gcblip, true)
 	SetBlipSprite(gcblip, 109)
+	SetBlipScale  (gcblip, 0.6)
 	SetBlipColour(gcblip, 68)
 	SetBlipAsShortRange(gcblip,true)
 	BeginTextCommandSetBlipName("STRING");

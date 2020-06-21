@@ -6,29 +6,29 @@
 math.randomseed(os.time()) 
 
 --- Pour les numero du style XXX-XXXX
---function getPhoneRandomNumber()
-    --local numBase0 = math.random(100,999)
-    --local numBase1 = math.random(0,9999)
-    --local num = string.format("%03d-%04d", numBase0, numBase1 )
-	--return num
---end
+function getPhoneRandomNumber()
+    local numBase0 = math.random(100,999)
+    local numBase1 = math.random(0,9999)
+    local num = string.format("%03d-%04d", numBase0, numBase1 )
+	return num
+end
 
 --- Exemple pour les numero du style 06XXXXXXXX
-function getPhoneRandomNumber()
-return '4' .. math.random(600,6999)
-end
+-- function getPhoneRandomNumber()
+--     return '0' .. math.random(600000000,699999999)
+-- end
 
 
 --[[
   Ouverture du téphone lié a un item
   Un solution ESC basé sur la solution donnée par HalCroves
   https://forum.fivem.net/t/tutorial-for-gcphone-with-call-and-job-message-other/177904
---]]
+ 
 local ESX = nil
 TriggerEvent('esx:getSharedObject', function(obj) 
     ESX = obj 
     ESX.RegisterServerCallback('gcphone:getItemAmount', function(source, cb, item)
-        --print('gcphone:getItemAmount call item : ' .. item)
+        print('gcphone:getItemAmount call item : ' .. item)
         local xPlayer = ESX.GetPlayerFromId(source)
         local items = xPlayer.getInventoryItem(item)
         if items == nil then
@@ -37,7 +37,7 @@ TriggerEvent('esx:getSharedObject', function(obj)
             cb(items.count)
         end
     end)
-end)
+end) --]] 
 
 
 

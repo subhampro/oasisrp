@@ -117,7 +117,7 @@ function CreateBlip(coords, text, sprite, color, scale)
 	local blip = AddBlipForCoord( table.unpack(coords) )
 
 	SetBlipSprite(blip, sprite)
-	SetBlipScale(blip, scale)
+	SetBlipScale(blip, 0.6)
 	SetBlipColour(blip, color)
 
 	SetBlipAsShortRange(blip, true)
