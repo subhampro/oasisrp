@@ -18,6 +18,8 @@ files {
 	'html/css/app.css',
 	'html/js/mustache.min.js',
 	'html/js/app.js',
+	'html/fonts/signpainter.ttf',
+	'html/fonts/arial.ttf',	
 	'html/fonts/pdown.ttf',
 	'html/fonts/bankgothic.ttf'
 }
