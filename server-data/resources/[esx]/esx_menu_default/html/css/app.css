@@ -8,32 +8,13 @@
 	src: url('../fonts/pdown.ttf');
 }
 
-@font-face {
-  font-family: signpainter;
-  src: url('../fonts/signpainter.ttf');
-}
-
-@font-face {
-  font-family: arial;
-  src: url('../fonts/arial.ttf');
-}
-
-@font-face {
-    font-family: 'Font2';
-    src: url(https://runtime.fivem.net/temp/ChaletLondonNineteenSixty.otf?a);
-}
-
-@font-face {
-    font-family: 'Font2_cond';
-    src: url(https://runtime.fivem.net/temp/chaletcomprime-colognesixty-webfont.ttf?a);
-}
-
-
 .menu {
-	background-color: rgba(0,0,0,0.7);
+	background-color: rgba(0,0,0,0.6);
+	border-radius: 20px;
 	font-family: Verdana;
 	min-width: 400px;
 	color: #fff;
+	box-shadow: 0px 0px 50px 0px #000;
 	position: absolute;
 }
 
@@ -89,24 +70,23 @@
 
 .menu .head {
 	background-image: url(https://i.imgur.com/KGeRxCb.png);
+	border-radius: 20px 20px 0px 0px;
 	text-align: center;
-color: #42a4f5;
-	font-family: Font2_cond;
-	font-size       : 25px;
-	height: 122px;
-	line-height     : 213px;
+	height: 85px;
+	line-height: 40px;
 }
 
 .menu .menu-items {
 	max-height: 600px;
 	overflow-y: hidden;
+	border-radius: 0px 0px 20px 20px;
 }
 
 .menu .menu-items .menu-item {
-  font-family:  arial;
 	height: 40px;
 	display: block;
 	background-color: rgba(0, 0, 0, 0.6);
+	-box-shadow: inset 1px 0px 0px 1px rgba(0, 0, 0, 0.6);
 	height: 32px;
 	line-height: 32px;
 	color: rgb(255, 255, 255);
@@ -114,6 +94,5 @@ color: #42a4f5;
 }
 
 .menu .menu-items .menu-item.selected {
-  background-image: linear-gradient(to right, rgba(255,255,255,0.7), rgba(255,255,255,0.45));
-  color :black;
+	background-color: #4d4d4d38;
 }
