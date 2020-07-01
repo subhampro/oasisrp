@@ -102,7 +102,7 @@ Citizen.CreateThread(function()
 		table.insert(blipList, {
 			coords = { Config.DeliveryShops[i].x, Config.DeliveryShops[i].y },
 			text   = _U('blip_shop'),
-			sprite = 521,
+			sprite = 94,
 			color  = 17,
 			scale  = 1.0
 		})

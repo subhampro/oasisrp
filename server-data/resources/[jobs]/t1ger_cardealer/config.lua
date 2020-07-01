@@ -132,7 +132,7 @@ Config.PlateUseSpace = false
 Config.Blip = {{
 	Enable 	= true,
 	Pos 	= {-1176.26,-1705.9,4.56},
-	Sprite 	= 523, Color = 0,
+	Sprite 	= 326, Color = 0,
 	Name 	= "Premium Car Dealership",
 	Scale 	= 0.6,
 	Display = 4,
